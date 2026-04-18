@@ -1,1 +1,0 @@
-class_name PlayerStunned extends EntityStunned

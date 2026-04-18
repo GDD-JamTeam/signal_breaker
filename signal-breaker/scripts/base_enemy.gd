@@ -85,9 +85,9 @@ func get_attack_frame_range() -> Array:
 	return frames_hit
 
 
-func enable_damage_box(_index: int) -> void:
+func enable_hitbox(_index: int) -> void:
 	attack_area.monitoring = true
 
 
-func disable_damage_box() -> void:
+func disable_hitboxes() -> void:
 	attack_area.monitoring = false

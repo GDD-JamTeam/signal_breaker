@@ -15,6 +15,9 @@ charge_time = 1.0
 rest_time = 1.5
 frames_hit = Array[int]([])
 
+[node name="sprites" parent="." index="0" unique_id=1045706891]
+animation = &"walk"
+
 [node name="attack_range_area" type="Area2D" parent="." index="1" unique_id=86357474]
 
 [node name="attack_range_shape" type="CollisionShape2D" parent="attack_range_area" index="0" unique_id=790022693]

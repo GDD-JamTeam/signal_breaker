@@ -8,11 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://yr7uqu22qf5p" path="res://assets/support_assets/tilemaps/BattingGirl_Download Free/BattingGirl_attack02-Sheet.png" id="4_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://dv8vwyomumq6r" path="res://assets/support_assets/tilemaps/BattingGirl_Download Free/BattingGirl_Walk-Sheet.png" id="4_75vfm"]
 [ext_resource type="Texture2D" uid="uid://c1cyh8j1qsule" path="res://assets/support_assets/tilemaps/BattingGirl_Download Free/BattingGirl_attack03-Sheet.png" id="5_h17s1"]
-[ext_resource type="Script" uid="uid://b045pjy80j0k2" path="res://scripts/player/states/stunned.gd" id="9_gx1jg"]
 [ext_resource type="Script" uid="uid://co4y5korvex35" path="res://scripts/player/states/seeking.gd" id="10_ugbui"]
-[ext_resource type="Script" uid="uid://byuewdqcmg34k" path="res://scripts/player/states/charge.gd" id="11_fcs02"]
 [ext_resource type="Script" uid="uid://cyp5waolpq4gm" path="res://scripts/player/states/attack.gd" id="12_myrg7"]
-[ext_resource type="Script" uid="uid://niyxpq4ds87" path="res://scripts/player/states/rest.gd" id="13_kvlxm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kxw46"]
 atlas = ExtResource("3_qek5x")
@@ -436,6 +433,7 @@ height = 50.0
 [node name="player" unique_id=1123628860 node_paths=PackedStringArray("hitboxes") instance=ExtResource("1_8afob")]
 script = ExtResource("2_p47bc")
 hitboxes = [NodePath("attack_1"), NodePath("attack_2"), NodePath("attack_3")]
+hitboxes_damage = Array[int]([10, 15, 20])
 
 [node name="sprites" parent="." index="0" unique_id=1045706891]
 position = Vector2(11, -11)
@@ -472,20 +470,16 @@ shape = SubResource("CapsuleShape2D_h17s1")
 debug_color = Color(0.6752852, 0.50675404, 0.007723638, 0.41960785)
 
 [node name="Stunned" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="0" unique_id=35043778]
-script = ExtResource("9_gx1jg")
+script = null
 
 [node name="Seeking" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="1" unique_id=2014905553]
 script = ExtResource("10_ugbui")
 
 [node name="Charge" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="2" unique_id=1891615566]
-script = ExtResource("11_fcs02")
+script = null
 
 [node name="Attack" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="3" unique_id=2033860285]
 script = ExtResource("12_myrg7")
 
 [node name="Rest" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="4" unique_id=338252094]
-script = ExtResource("13_kvlxm")
-
-[connection signal="area_entered" from="attack_1" to="." method="_on_attack_1_area_entered"]
-[connection signal="area_entered" from="attack_2" to="." method="_on_attack_2_area_entered"]
-[connection signal="area_entered" from="attack_3" to="." method="_on_attack_3_area_entered"]
+script = null

@@ -1,6 +1,9 @@
 class_name BaseEntity extends CharacterBody2D
 
 
+## Índice de la animación de ataque
+var attack_index: int = 0
+
 # Estado previo de la máquina de estados
 var previous_state: Script
 
@@ -40,7 +43,7 @@ func move_direction(dir: Vector2) -> void:
 ## Recibe daño y empuja la entidad en la dirección del golpe
 func get_hurt(damage: int, source_position: Vector2) -> void:
 	# Desactiva la hurtbox para evitar spam de daño
-	disable_damage_box()
+	disable_hitboxes()
 
 	health -= damage
 
@@ -71,12 +74,12 @@ func is_same_team(target: Node) -> bool:
 
 ## Activa la hurtbox para recibir daño
 @warning_ignore("unused_parameter")
-func enable_damage_box(index: int) -> void:
+func enable_hitbox(index: int) -> void:
 	pass
 
 
 ## Desactiva la hurtbox para invulnerabilidad
-func disable_damage_box() -> void:
+func disable_hitboxes() -> void:
 	pass
 
 

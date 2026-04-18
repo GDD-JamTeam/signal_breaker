@@ -1,1 +1,0 @@
-class_name PlayerCharge extends EntityCharge
