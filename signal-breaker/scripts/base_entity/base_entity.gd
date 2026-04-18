@@ -14,6 +14,8 @@ var is_looking_right: bool = true
 var hit_targets: Array ## ! Para el jugador
 var hitbox_active: bool = false ## ! Para el jugador
 
+## Tiempo de espera para atacar
+@export var charge_duration: float = 0.2
 
 @export var knockback_force: float = 200.0
 ## Tiempo de aturdimiento
