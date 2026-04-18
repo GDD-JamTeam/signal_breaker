@@ -19,6 +19,7 @@ var last_direction: int = 1
 var attack_index: int = 0
 
 var hit_targets := []
+var hitbox_active: bool = false
 
 @export var knockback_force: float = 200.0
 @export var knockback_duration: float = 0.2
@@ -117,6 +118,30 @@ func disable_damage_box() -> void:
 func get_attack_animation() -> String:
 	return "attack"
 
+func update_attack_hitbox() -> void:
+	if state != State.ATTACK:
+		return
+	
+	var frame = animation_sprite.frame
+	var range = get_attack_frame_range()
+	
+	if range.size() < 2:
+		return
+	
+	var start_frame = range[0]
+	var end_frame = range[1]
+	
+	if frame >= start_frame and frame <= end_frame:
+		if not hitbox_active:
+			enable_damage_box(attack_index)
+			hitbox_active = true
+	else:
+		if hitbox_active:
+			disable_damage_box()
+			hitbox_active = false
+			
+func get_attack_frame_range() -> Array:
+	return []
 
 func update_animation() -> void:
 	var new_anim: String
@@ -152,8 +177,12 @@ func _physics_process(delta: float) -> void:
 			exit_stunned()
 	
 	move_and_slide()
+	update_attack_hitbox()
 	update_animation()
 
+func start_attack_base() -> void:
+	reset_hit_targets()
+	hitbox_active = false
 
 func _on_AnimatedSprite2D_animation_finished() -> void:
 	if state == State.ATTACK:
