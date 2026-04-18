@@ -3,4 +3,5 @@ class_name PlayerSeeking extends EntitySeeking
 
 func physics_update(delta: float) -> void:
 	super(delta)
+	if Input.is_action_just_pressed("attack"): to_state.emit(PlayerAttack)
 	base_entity.move_direction(base_entity.input_dir)

@@ -8,7 +8,6 @@ func start() -> void:
 
 func physics_update(_delta: float) -> void:
 	update_animation()
-	if Input.is_action_just_pressed("attack"): to_state.emit(PlayerAttack)
 
 
 ## Actualiza la animación del personaje dependiendo de su dirección y velocidad

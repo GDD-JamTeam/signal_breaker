@@ -79,13 +79,13 @@ func is_same_team(target: Node) -> bool:
 #region Métodos vacíos (para implementar)
 
 
-## Activa la hurtbox para recibir daño
+## Activa la hitbox indicada por su índice para recibir daño
 @warning_ignore("unused_parameter")
 func enable_hitbox(index: int) -> void:
 	pass
 
 
-## Desactiva la hurtbox para invulnerabilidad
+## Desactiva todas las hitboxes al terminar el ataque
 func disable_hitboxes() -> void:
 	pass
 
