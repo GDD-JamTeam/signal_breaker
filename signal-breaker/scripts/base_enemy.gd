@@ -3,6 +3,8 @@ extends base_entity
 # variables
 @export var charge_time: float = 1.0
 @export var rest_time: float = 1.5
+@export var attack_area: Area2D
+@export var frames_hit: Array[int]
 
 var on_range: bool = false
 var timer: float = 0.0
@@ -81,3 +83,12 @@ func behavior_tree(delta: float) -> void:
 		
 		State.STUNNED:
 			pass
+
+func get_attack_frame_range() -> Array:
+	return frames_hit
+	
+func enable_damage_box(index: int) -> void:
+	attack_area.monitoring = true
+
+func disable_damage_box() -> void:
+	attack_area.monitoring = false
