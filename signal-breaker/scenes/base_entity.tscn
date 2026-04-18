@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dbwcbiutuyjh6"]
+[gd_scene format=3 uid="uid://bog3qr1x7e3xt"]
 
-[ext_resource type="Script" uid="uid://bkrudff3p8vmi" path="res://scripts/base_entity.gd" id="1_qkyy0"]
+[ext_resource type="Script" path="res://scripts/base_entity.gd" id="1_qkyy0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c503q"]
 radius = 19.0
@@ -8,6 +8,8 @@ height = 62.0
 
 [node name="entity_base" type="CharacterBody2D" unique_id=1123628860]
 script = ExtResource("1_qkyy0")
+
+[node name="sprites" type="AnimatedSprite2D" parent="." unique_id=1045706891]
 
 [node name="hit_box" type="CollisionShape2D" parent="." unique_id=515622228]
 shape = SubResource("CapsuleShape2D_c503q")
