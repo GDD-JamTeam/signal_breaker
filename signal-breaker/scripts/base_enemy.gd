@@ -49,6 +49,8 @@ func change_state(new_state: State) -> void:
 	timer = 0.0
 	state = new_state
 
+func exit_stunned():
+	change_state(State.SEEKING)
 
 func behavior_tree(delta: float) -> void:
 	match state:
@@ -78,5 +80,4 @@ func behavior_tree(delta: float) -> void:
 				change_state(State.SEEKING)
 		
 		State.STUNNED:
-			if not is_knocked:
-				change_state(State.SEEKING)
+			pass
