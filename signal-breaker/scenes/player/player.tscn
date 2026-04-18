@@ -469,17 +469,8 @@ rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_h17s1")
 debug_color = Color(0.6752852, 0.50675404, 0.007723638, 0.41960785)
 
-[node name="Stunned" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="0" unique_id=35043778]
-script = null
-
 [node name="Seeking" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="1" unique_id=2014905553]
 script = ExtResource("10_ugbui")
 
-[node name="Charge" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="2" unique_id=1891615566]
-script = null
-
 [node name="Attack" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="3" unique_id=2033860285]
 script = ExtResource("12_myrg7")
-
-[node name="Rest" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="4" unique_id=338252094]
-script = null
