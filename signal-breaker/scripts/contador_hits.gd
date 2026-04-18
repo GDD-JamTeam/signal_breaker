@@ -1,6 +1,7 @@
 extends Label
 
 var hits:int = 0
+var tween_pop: Tween
 
 func _ready() -> void:
 	# Conectar con señal de cuando recibe daño un enemigo
@@ -17,12 +18,15 @@ func actualizar_contador():
 	animacion_pop(hits)
 	
 func animacion_pop(hits):
-	var tween_pop = get_tree().create_tween()
+	if tween_pop:
+		tween_pop.kill()
+	
+	tween_pop = get_tree().create_tween()
 	var tilt = deg_to_rad(randf_range(-20, 20))
 	var scale_factor = randf_range(3, 3.5)
 	
 	if hits % 10 == 0:
-		scale_factor*=1.2
+		scale_factor*=1.3
 	
 	modulate.a = 1.0
 	tween_pop.parallel().tween_property(self, "scale", Vector2.ONE*scale_factor, 0.1).set_trans(Tween.TRANS_EXPO)
