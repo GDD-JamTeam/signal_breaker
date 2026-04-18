@@ -4,6 +4,11 @@ extends base_entity
 @export var attack_2: Area2D
 @export var attack_3: Area2D
 
+var attack_frames = [
+	[2,3],  # attack_1
+	[4,6],  # attack_2
+	[6,9]   # attack_3
+]
 
 func _ready() -> void:
 	disable_damage_box()
@@ -27,8 +32,7 @@ func handle_input() -> void:
 func start_attack() -> void:
 	attack_index = (attack_index + 1) % 3
 	change_state(State.ATTACK)
-	
-	reset_hit_targets()
+	start_attack_base()
 
 
 func get_attack_animation() -> String:
@@ -39,6 +43,8 @@ func get_attack_animation() -> String:
 	
 	return "attack_1"
 
+func get_attack_frame_range() -> Array:
+	return attack_frames[attack_index]
 
 func enable_damage_box(index: int) -> void:
 	match index:
