@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://dmq5tuy0dq2gr"]
+
+[ext_resource type="Texture2D" uid="uid://cw7oetru5dx5e" path="res://scenes/ui/menus/autobot.png" id="1_ho7s1"]
+[ext_resource type="Script" uid="uid://beohv7kv7bicy" path="res://scripts/juego_menu.gd" id="1_hsl5g"]
+[ext_resource type="Script" uid="uid://stoisyle4t15" path="res://scripts/jugador_menu.gd" id="2_f5tlo"]
+[ext_resource type="Texture2D" uid="uid://cibou87vgajw2" path="res://scenes/ui/menus/decepticon.png" id="2_l7f6w"]
+[ext_resource type="Texture2D" uid="uid://3577t2sbr5gc" path="res://scenes/ui/menus/terrorcon.png" id="3_l7f6w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsl5g"]
+size = Vector2(276.62653, 276.70584)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5tlo"]
+size = Vector2(160.5, 173.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhcye"]
+size = Vector2(188, 203)
+
+[node name="JuegoMenu" type="Node2D" unique_id=1763632846]
+script = ExtResource("1_hsl5g")
+
+[node name="JugadorMenu" type="CharacterBody2D" parent="." unique_id=154359140]
+script = ExtResource("2_f5tlo")
+
+[node name="Sprite2D" type="Sprite2D" parent="JugadorMenu" unique_id=1172965459]
+position = Vector2(157.5, 264.5)
+scale = Vector2(0.29642856, 0.30357143)
+texture = ExtResource("1_ho7s1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JugadorMenu" unique_id=1544123419]
+position = Vector2(157, 264)
+scale = Vector2(0.29642856, 0.30357143)
+shape = SubResource("RectangleShape2D_hsl5g")
+
+[node name="Enemigo1" type="Area2D" parent="." unique_id=533673202]
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemigo1" unique_id=96930910]
+position = Vector2(602, 174.99997)
+scale = Vector2(0.17777778, 0.18148148)
+texture = ExtResource("2_l7f6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo1" unique_id=363985140]
+position = Vector2(602.75, 173.25)
+shape = SubResource("RectangleShape2D_f5tlo")
+
+[node name="Enemigo2" type="Area2D" parent="." unique_id=1915691226]
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemigo2" unique_id=1943141249]
+position = Vector2(461, 434)
+texture = ExtResource("3_l7f6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo2" unique_id=344069012]
+position = Vector2(460, 433)
+shape = SubResource("RectangleShape2D_dhcye")
+
+[node name="Menus" type="CanvasLayer" parent="." unique_id=1330881492]
+process_mode = 3
+
+[node name="Pausa" type="ColorRect" parent="Menus" unique_id=1550308894]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.29411766)
+
+[node name="Label" type="Label" parent="Menus/Pausa" unique_id=800327774]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.5
+offset_top = 35.0
+offset_right = 61.5
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 38
+text = "PAUSA"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Pausa" unique_id=1562919570]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.5
+offset_top = -115.5
+offset_right = 147.5
+offset_bottom = 115.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 13
+
+[node name="Continuar" type="Button" parent="Menus/Pausa/VBoxContainer" unique_id=1780483015]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Continuar"
+
+[node name="Reiniciar" type="Button" parent="Menus/Pausa/VBoxContainer" unique_id=1538347127]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Reiniciar"
+
+[node name="Menu" type="Button" parent="Menus/Pausa/VBoxContainer" unique_id=765410498]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Volver al Menu"
+
+[node name="Victoria" type="ColorRect" parent="Menus" unique_id=825356464]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 224.0
+offset_top = 108.0
+offset_right = -274.0
+offset_bottom = -147.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.7254902)
+
+[node name="Label" type="Label" parent="Menus/Victoria" unique_id=1487859815]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 24.0
+offset_right = 20.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "Victoria"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Victoria" unique_id=52175555]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 13
+
+[node name="Reiniciar" type="Button" parent="Menus/Victoria/VBoxContainer" unique_id=441285311]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Volver a Jugar"
+
+[node name="Menu" type="Button" parent="Menus/Victoria/VBoxContainer" unique_id=1297840549]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Volver al Menu"
+
+[node name="Muerte" type="ColorRect" parent="Menus" unique_id=1634006530]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6156863)
+
+[node name="Label" type="Label" parent="Menus/Muerte" unique_id=1619092086]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 41.0
+offset_right = 20.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Game Over"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Muerte" unique_id=603821975]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 17
+
+[node name="Reiniciar" type="Button" parent="Menus/Muerte/VBoxContainer" unique_id=1302559574]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Reiniciar"
+
+[node name="Menu" type="Button" parent="Menus/Muerte/VBoxContainer" unique_id=1072884255]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Volver al Menu"
+
+[connection signal="body_entered" from="Enemigo1" to="." method="_on_enemigo_1_body_entered"]
+[connection signal="body_entered" from="Enemigo2" to="." method="_on_enemigo_2_body_entered"]
+[connection signal="pressed" from="Menus/Pausa/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Menus/Pausa/VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Menus/Pausa/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Menus/Victoria/VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Menus/Victoria/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Menus/Muerte/VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Menus/Muerte/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
