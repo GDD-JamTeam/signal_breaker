@@ -4,7 +4,9 @@
 
 [node name="World" type="Node2D" unique_id=989375550]
 
-[node name="player" parent="." unique_id=1123628860 instance=ExtResource("1_jsh2e")]
+[node name="player" parent="." unique_id=1123628860 node_paths=PackedStringArray("hitboxes") instance=ExtResource("1_jsh2e")]
 position = Vector2(39, -42)
+hitboxes = []
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=235019019]
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=235019019]
+position_smoothing_enabled = true

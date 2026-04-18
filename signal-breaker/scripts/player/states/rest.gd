@@ -1,0 +1,1 @@
+class_name PlayerRest extends EntityRest
