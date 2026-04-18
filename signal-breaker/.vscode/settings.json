@@ -1,0 +1,9 @@
+{
+    "[gdscript]": {
+        "editor.rulers": [
+            100
+        ],
+        "editor.insertSpaces": false,
+        "editor.detectIndentation": false
+    }
+}
