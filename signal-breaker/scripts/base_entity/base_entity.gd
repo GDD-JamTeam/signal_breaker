@@ -16,6 +16,8 @@ var hitbox_active: bool = false ## ! Para el jugador
 
 ## Tiempo de espera para atacar
 @export var charge_duration: float = 0.2
+## Tiempo de descanso despues de un ataque
+@export var rest_duration: float = 0.2
 
 @export var knockback_force: float = 200.0
 ## Tiempo de aturdimiento
