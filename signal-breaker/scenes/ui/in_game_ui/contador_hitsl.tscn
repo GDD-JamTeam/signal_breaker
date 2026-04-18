@@ -18,6 +18,7 @@ offset_right = 596.0
 offset_bottom = 345.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -0.26529005
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 30
 text = "0x"

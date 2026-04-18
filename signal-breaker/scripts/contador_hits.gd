@@ -12,9 +12,13 @@ func _process(_delta: float) -> void:
 	
 func actualizar_contador():
 	var tween_pop = get_tree().create_tween()
+	var tilt = deg_to_rad(randf_range(-20, 20))
+	var scale_factor = randf_range(3, 3.5)
+	print(rad_to_deg(tilt))
 	#var tween_shrink = get_tree().create_tween()
 	
-	tween_pop.tween_property(self, "scale", scale*2, 0.1)
-	tween_pop.tween_property(self, "scale", Vector2.ONE, 0.1)
+	tween_pop.parallel().tween_property(self, "scale", scale*scale_factor, 0.1).set_trans(Tween.TRANS_EXPO)
+	tween_pop.parallel().tween_property(self, "rotation", tilt, 0.1)
+	tween_pop.tween_property(self, "scale", Vector2.ONE, 0.3).set_trans(Tween.TRANS_BACK)
 	hits += 1
 	self.text = str(hits) + "x"
