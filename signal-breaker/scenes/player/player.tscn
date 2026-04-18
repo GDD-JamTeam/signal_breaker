@@ -428,8 +428,11 @@ height = 46.0
 radius = 24.0
 height = 50.0
 
-[node name="player" unique_id=1123628860 instance=ExtResource("1_8afob")]
+[node name="player" unique_id=1123628860 node_paths=PackedStringArray("attack_1", "attack_2", "attack_3") instance=ExtResource("1_8afob")]
 script = ExtResource("2_p47bc")
+attack_1 = NodePath("attack_1")
+attack_2 = NodePath("attack_2")
+attack_3 = NodePath("attack_3")
 
 [node name="sprites" parent="." index="0" unique_id=1045706891]
 position = Vector2(11, -11)
@@ -463,3 +466,7 @@ position = Vector2(38, -1)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_h17s1")
 debug_color = Color(0.6752852, 0.50675404, 0.007723638, 0.41960785)
+
+[connection signal="area_entered" from="attack_1" to="." method="_on_attack_1_area_entered"]
+[connection signal="area_entered" from="attack_2" to="." method="_on_attack_2_area_entered"]
+[connection signal="area_entered" from="attack_3" to="." method="_on_attack_3_area_entered"]
