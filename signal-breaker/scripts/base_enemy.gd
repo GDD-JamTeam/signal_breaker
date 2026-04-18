@@ -1,20 +1,11 @@
 extends base_entity
 
-# ENUM of states
-enum State {
-	SEEKING,
-	CHARGE,
-	ATTACK,
-	REST
-}
-
 # variables
 @export var charge_time: float = 1.0
 @export var rest_time: float = 1.5
 
 var on_range: bool = false
 var is_alive: bool = true
-var state: State = State.SEEKING
 var timer: float = 0.0
 
 # target
@@ -27,6 +18,8 @@ func _ready() -> void:
 		if p is CharacterBody2D:
 			player = p
 			break
+	
+	change_state(State.SEEKING)
 
 
 func _process(delta: float) -> void:
