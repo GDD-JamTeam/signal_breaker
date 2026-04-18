@@ -2,6 +2,7 @@ class_name EntitySeeking extends EntityState
 
 
 func start() -> void:
+	await base_entity.ready
 	base_entity.animation_sprite.play(&"idle")
 
 

@@ -1,6 +1,21 @@
 class_name BaseEntity extends CharacterBody2D
 
 
+## Salud
+@export var health: int = 100
+## Velocidad de caminata
+@export var speed: int = 100
+
+@export_group("Knockback")
+## Fuerza de empuje al recibir daño
+@export var knockback_force: float = 200.0
+## Tiempo de aturdimiento
+@export var knockback_duration: float = 0.2
+
+
+@onready var animation_sprite: AnimatedSprite2D = $sprites
+
+
 ## Índice de la animación de ataque
 var attack_index: int = 0
 
@@ -13,14 +28,6 @@ var is_looking_right: bool = true
 ## Lista de objetivos golpeados
 var hit_targets: Array ## ! Para el jugador
 var hitbox_active: bool = false ## ! Para el jugador
-
-
-@export var knockback_force: float = 200.0
-## Tiempo de aturdimiento
-@export var knockback_duration: float = 0.2
-@export var health: int = 100
-@export var speed: int = 100
-@export var animation_sprite: AnimatedSprite2D
 
 
 func _physics_process(_delta: float) -> void:

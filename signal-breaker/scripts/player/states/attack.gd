@@ -16,7 +16,7 @@ func start() -> void:
 
 
 func physics_update(_delta: float) -> void:
-	super(_delta) # Esto permite que EntityAttack gestione las hitboxes
+	super(_delta)
 	base_entity.velocity = Vector2.ZERO
 
 
