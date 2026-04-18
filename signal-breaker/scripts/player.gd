@@ -8,6 +8,29 @@ extends base_entity
 func _ready() -> void:
 	disable_damage_box()
 
+
+func _process(delta: float) -> void:
+	if state == State.STUNNED:
+		return
+	
+	handle_input()
+
+
+func handle_input() -> void:
+	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	move_direction(dir)
+	
+	if Input.is_action_just_pressed("attack") and state != State.ATTACK:
+		start_attack()
+
+
+func start_attack() -> void:
+	attack_index = (attack_index + 1) % 3
+	change_state(State.ATTACK)
+	
+	reset_hit_targets()
+
+
 func get_attack_animation() -> String:
 	match attack_index:
 		0: return "attack_1"
