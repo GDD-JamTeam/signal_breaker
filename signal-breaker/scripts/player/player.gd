@@ -27,7 +27,7 @@ func _ready() -> void:
 	for i in hitboxes.size():
 		var hitbox = hitboxes[i]
 		var hitbox_damage = hitboxes_damage[i]
-		hitbox.area_entered.connect(apply_damage.bind(hitbox, hitbox_damage))
+		hitbox.area_entered.connect(apply_damage.bind(hitbox_damage))
 
 
 func _physics_process(delta: float) -> void:
