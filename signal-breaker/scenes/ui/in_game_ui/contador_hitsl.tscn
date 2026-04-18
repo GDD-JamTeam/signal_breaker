@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c20o36e5gu7l"]
+
+[ext_resource type="Script" uid="uid://bma72a03qbx2n" path="res://scripts/contador_hits.gd" id="1_i78qv"]
+
+[node name="Control" type="Control" unique_id=559491559]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1656975503]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 303.0
+offset_right = 596.0
+offset_bottom = 345.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 30
+text = "0x"
+script = ExtResource("1_i78qv")
