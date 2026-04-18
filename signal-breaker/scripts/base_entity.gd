@@ -12,7 +12,11 @@ enum State {
 # variables
 var is_alive: bool = true
 var state: State
+var is_knocked: bool = false
+var knockback_timer: float = 0.0
 
+@export var knockback_force: float = 200.0
+@export var knockback_duration: float = 0.2
 @export var health: int = 100
 @export var speed: int
 
