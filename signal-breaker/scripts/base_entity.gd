@@ -35,10 +35,6 @@ func move_direction(dir: Vector2) -> void:
 func change_state(new_state: State) -> void:
 	state = new_state
 	
-func die() -> void:
-	is_alive = false
-	queue_free()
-	
 func get_hurt(damage: int, source_position: Vector2) -> void:
 	if not is_alive:
 		return

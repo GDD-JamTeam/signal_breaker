@@ -45,6 +45,11 @@ func attack() -> void:
 	change_state(State.REST)
 
 
+func die() -> void:
+	is_alive = false
+	queue_free()
+
+
 func change_state(new_state: State) -> void:
 	timer = 0.0
 	state = new_state
