@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vv368qukv2px"]
 
-[ext_resource type="PackedScene" path="res://scenes/base_entity.tscn" id="1_qf3h2"]
-[ext_resource type="Script" path="res://scripts/base_enemy.gd" id="2_lkvl6"]
+[ext_resource type="PackedScene" uid="uid://bog3qr1x7e3xt" path="res://scenes/base_entity.tscn" id="1_qf3h2"]
+[ext_resource type="Script" uid="uid://s4f2mn42i205" path="res://scripts/base_enemy.gd" id="2_lkvl6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_satqt"]
 height = 62.0
@@ -11,7 +11,6 @@ radius = 11.0
 
 [node name="base_enemy" unique_id=1123628860 instance=ExtResource("1_qf3h2")]
 script = ExtResource("2_lkvl6")
-attack_radius = 100.0
 charge_time = 1.0
 rest_time = 1.5
 
