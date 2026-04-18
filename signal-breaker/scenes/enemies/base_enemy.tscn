@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://gaqhwxnq4dv7"]
+[gd_scene format=3 uid="uid://vv368qukv2px"]
 
-[ext_resource type="PackedScene" uid="uid://dbwcbiutuyjh6" path="res://scenes/base_entity.tscn" id="1_qf3h2"]
-[ext_resource type="Script" uid="uid://s4f2mn42i205" path="res://scripts/base_enemy.gd" id="2_lkvl6"]
+[ext_resource type="PackedScene" path="res://scenes/base_entity.tscn" id="1_qf3h2"]
+[ext_resource type="Script" path="res://scripts/base_enemy.gd" id="2_lkvl6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_satqt"]
 height = 62.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pkqou"]
-radius = 12.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qf3h2"]
+radius = 11.0
 
-[node name="enemy_base" unique_id=1123628860 instance=ExtResource("1_qf3h2")]
+[node name="base_enemy" unique_id=1123628860 instance=ExtResource("1_qf3h2")]
 script = ExtResource("2_lkvl6")
 attack_radius = 100.0
 charge_time = 1.0
@@ -25,7 +25,8 @@ shape = SubResource("CapsuleShape2D_satqt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hit_area" index="0" unique_id=1386769232]
 position = Vector2(21, 0)
-shape = SubResource("CircleShape2D_pkqou")
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_qf3h2")
 debug_color = Color(1, 0, 0, 0.41960785)
 
 [connection signal="area_entered" from="attack_range_area" to="." method="_on_attack_range_area_area_entered"]
