@@ -24,8 +24,9 @@ animations = [{
 radius = 19.0
 height = 62.0
 
-[node name="entity_base" type="CharacterBody2D" unique_id=1123628860]
+[node name="entity_base" type="CharacterBody2D" unique_id=1123628860 node_paths=PackedStringArray("animation_sprite")]
 script = ExtResource("1_qkyy0")
+animation_sprite = NodePath("sprites")
 
 [node name="sprites" type="AnimatedSprite2D" parent="." unique_id=1045706891]
 sprite_frames = SubResource("SpriteFrames_qkyy0")
