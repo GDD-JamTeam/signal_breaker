@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name base_entity
 
 @export var health: int = 100
 @export var speed: int
