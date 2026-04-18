@@ -9,10 +9,11 @@ func _ready() -> void:
 	pass
 
 func move_to(pos: Vector2) -> void:
-	pass
+	var dir = (pos - global_position).normalized()
+	move_direction(dir)
 	
 func move_direction(dir: Vector2) -> void:
-	pass
+	velocity = dir * speed
 	
 func die() -> void:
 	pass
