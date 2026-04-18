@@ -9,5 +9,5 @@ height = 62.0
 [node name="entity_base" type="CharacterBody2D" unique_id=1123628860]
 script = ExtResource("1_qkyy0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=515622228]
+[node name="hit_box" type="CollisionShape2D" parent="." unique_id=515622228]
 shape = SubResource("CapsuleShape2D_c503q")
