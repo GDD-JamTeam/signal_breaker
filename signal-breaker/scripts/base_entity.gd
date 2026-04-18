@@ -12,7 +12,6 @@ enum State {
 # variables
 var is_alive: bool = true
 var state: State
-var is_knocked: bool = false
 var knockback_timer: float = 0.0
 
 @export var knockback_force: float = 200.0
@@ -40,7 +39,7 @@ func die() -> void:
 	queue_free()
 	
 func get_hurt(damage: int, source_position: Vector2) -> void:
-	if not is_alive:
+	if not is_alive or state == State.STUNNED:
 		return
 	
 	health -= damage
@@ -48,21 +47,23 @@ func get_hurt(damage: int, source_position: Vector2) -> void:
 	var knockback_dir = (global_position - source_position).normalized()
 	velocity = knockback_dir * knockback_force
 	
-	is_knocked = true
+	change_state(State.STUNNED)
 	knockback_timer = knockback_duration
 	
 	if health <= 0:
 		die()
+func exit_stunned():
+	pass
 
 func _process(delta: float) -> void:
 	pass
 
 
 func _physics_process(delta: float) -> void:
-	if is_knocked:
+	if State.STUNNED:
 		knockback_timer -= delta
 		
 		if knockback_timer <= 0:
-			is_knocked = false
+				exit_stunned()
 	
 	move_and_slide()
