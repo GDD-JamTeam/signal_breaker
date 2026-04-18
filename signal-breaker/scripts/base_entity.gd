@@ -32,7 +32,8 @@ func change_state(new_state: State) -> void:
 	state = new_state
 	
 func die() -> void:
-	pass
+	is_alive = false
+	queue_free()
 	
 func get_hurt() -> void:
 	pass
