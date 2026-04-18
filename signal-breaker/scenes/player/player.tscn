@@ -273,37 +273,37 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_1u1sw")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_2t3bg")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_jrbya")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ahqnk")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_vb1ce")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_0ncpa")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_upxxc")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ln3h3")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_uygh0")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_t1aof")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_w8qe1")
 }],
 "loop": false,
@@ -437,8 +437,7 @@ attack_3 = NodePath("attack_3")
 [node name="sprites" parent="." index="0" unique_id=1045706891]
 position = Vector2(11, -11)
 sprite_frames = SubResource("SpriteFrames_kxw46")
-animation = &"attack_3"
-frame = 7
+animation = &"attack_1"
 
 [node name="hit_box" parent="." index="1" unique_id=515622228]
 shape = SubResource("CapsuleShape2D_lvxji")
