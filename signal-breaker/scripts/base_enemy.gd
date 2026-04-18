@@ -76,3 +76,7 @@ func behavior_tree(delta: float) -> void:
 			
 			if timer >= rest_time:
 				change_state(State.SEEKING)
+		
+		State.STUNNED:
+			if not is_knocked:
+				change_state(State.SEEKING)

@@ -35,14 +35,30 @@ func die() -> void:
 	is_alive = false
 	queue_free()
 	
-func get_hurt() -> void:
-	pass
+func get_hurt(damage: int, source_position: Vector2) -> void:
+	if not is_alive:
+		return
+	
+	health -= damage
+	
+	var knockback_dir = (global_position - source_position).normalized()
+	velocity = knockback_dir * knockback_force
+	
+	is_knocked = true
+	knockback_timer = knockback_duration
+	
+	if health <= 0:
+		die()
 
 func _process(delta: float) -> void:
 	pass
 
 
 func _physics_process(delta: float) -> void:
+	if is_knocked:
+		knockback_timer -= delta
+		
+		if knockback_timer <= 0:
+			is_knocked = false
 	
-
 	move_and_slide()
