@@ -5,7 +5,6 @@ extends base_entity
 @export var rest_time: float = 1.5
 
 var on_range: bool = false
-var is_alive: bool = true
 var timer: float = 0.0
 
 # target

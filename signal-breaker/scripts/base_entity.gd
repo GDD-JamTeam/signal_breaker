@@ -10,6 +10,7 @@ enum State {
 }
 
 # variables
+var is_alive: bool = true
 var state: State
 
 @export var health: int = 100
