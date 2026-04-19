@@ -2,14 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bog3qr1x7e3xt" path="res://scenes/base_entity/base_entity.tscn" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://bdylxcau0gkkh" path="res://assets/support_assets/tilemaps/BattingGirl_Download Free/BattingGirl_Hurt-Sheet.png" id="2_lvxji"]
-[ext_resource type="Script" uid="uid://bjogi4bitg1hu" path="res://scripts/player/player.gd" id="2_p47bc"]
+[ext_resource type="Script" uid="uid://bjogi4bitg1hu" path="res://scripts/player.gd" id="2_p47bc"]
 [ext_resource type="Texture2D" uid="uid://cf3n6qmhkk887" path="res://assets/support_assets/tilemaps/BattingGirl_Download Free/BattingGirl_Idle-Sheet.png" id="3_p47bc"]
 [ext_resource type="Texture2D" uid="uid://dimtiw5eqefor" path="res://assets/support_assets/tilemaps/BattingGirl_Download Free/BattingGirl_attack01-Sheet.png" id="3_qek5x"]
 [ext_resource type="Texture2D" uid="uid://yr7uqu22qf5p" path="res://assets/support_assets/tilemaps/BattingGirl_Download Free/BattingGirl_attack02-Sheet.png" id="4_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://dv8vwyomumq6r" path="res://assets/support_assets/tilemaps/BattingGirl_Download Free/BattingGirl_Walk-Sheet.png" id="4_75vfm"]
 [ext_resource type="Texture2D" uid="uid://c1cyh8j1qsule" path="res://assets/support_assets/tilemaps/BattingGirl_Download Free/BattingGirl_attack03-Sheet.png" id="5_h17s1"]
-[ext_resource type="Script" uid="uid://co4y5korvex35" path="res://scripts/player/states/seeking.gd" id="10_ugbui"]
-[ext_resource type="Script" uid="uid://cyp5waolpq4gm" path="res://scripts/player/states/attack.gd" id="12_myrg7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kxw46"]
 atlas = ExtResource("3_qek5x")
@@ -430,49 +428,44 @@ height = 46.0
 radius = 24.0
 height = 50.0
 
-[node name="player" unique_id=1123628860 node_paths=PackedStringArray("hitboxes") instance=ExtResource("1_8afob")]
+[node name="player" unique_id=1123628860 node_paths=PackedStringArray("attack_1", "attack_2", "attack_3") instance=ExtResource("1_8afob")]
 script = ExtResource("2_p47bc")
-hitboxes = [NodePath("Attacks/attack_1"), NodePath("Attacks/attack_2"), NodePath("Attacks/attack_3")]
-hitboxes_damage = Array[int]([10, 15, 20])
+attack_1 = NodePath("attack_1")
+attack_2 = NodePath("attack_2")
+attack_3 = NodePath("attack_3")
 
 [node name="sprites" parent="." index="0" unique_id=1045706891]
-position = Vector2(0, -15)
+position = Vector2(11, -11)
 sprite_frames = SubResource("SpriteFrames_kxw46")
-animation = &"attack_2"
-frame = 7
-frame_progress = 1.0
+animation = &"attack_1"
 
 [node name="hit_box" parent="." index="1" unique_id=515622228]
 shape = SubResource("CapsuleShape2D_lvxji")
 
-[node name="Attacks" type="Node2D" parent="." index="2" unique_id=1266279085]
+[node name="attack_1" type="Area2D" parent="." index="2" unique_id=768908441]
 
-[node name="attack_1" type="Area2D" parent="Attacks" index="0" unique_id=768908441]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/attack_1" index="0" unique_id=1593471639]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_1" index="0" unique_id=1593471639]
 position = Vector2(25, -12)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_qek5x")
 debug_color = Color(1, 0, 0, 0.3529412)
 
-[node name="attack_2" type="Area2D" parent="Attacks" index="1" unique_id=2032813768]
+[node name="attack_2" type="Area2D" parent="." index="3" unique_id=2032813768]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/attack_2" index="0" unique_id=1024516025]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_2" index="0" unique_id=1024516025]
 position = Vector2(37, -4)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_5gtgg")
 debug_color = Color(0, 0.5882353, 0, 0.41960785)
 
-[node name="attack_3" type="Area2D" parent="Attacks" index="2" unique_id=1294742507]
+[node name="attack_3" type="Area2D" parent="." index="4" unique_id=1294742507]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/attack_3" index="0" unique_id=1641109066]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_3" index="0" unique_id=1641109066]
 position = Vector2(38, -1)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_h17s1")
 debug_color = Color(0.6752852, 0.50675404, 0.007723638, 0.41960785)
 
-[node name="Seeking" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="1" unique_id=2014905553]
-script = ExtResource("10_ugbui")
-
-[node name="Attack" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="3" unique_id=2033860285]
-script = ExtResource("12_myrg7")
+[connection signal="area_entered" from="attack_1" to="." method="_on_attack_1_area_entered"]
+[connection signal="area_entered" from="attack_2" to="." method="_on_attack_2_area_entered"]
+[connection signal="area_entered" from="attack_3" to="." method="_on_attack_3_area_entered"]

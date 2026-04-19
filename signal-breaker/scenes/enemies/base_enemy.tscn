@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://vv368qukv2px"]
 
-[ext_resource type="PackedScene" uid="uid://bog3qr1x7e3xt" path="res://scenes/base_entity.tscn" id="1_qf3h2"]
+[ext_resource type="PackedScene" uid="uid://bog3qr1x7e3xt" path="res://scenes/base_entity/base_entity.tscn" id="1_qf3h2"]
 [ext_resource type="Script" uid="uid://s4f2mn42i205" path="res://scripts/base_enemy.gd" id="2_lkvl6"]
+[ext_resource type="Script" uid="uid://bmgk2ollmk3dq" path="res://scripts/base_entity/state_machine.gd" id="3_lkvl6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_satqt"]
 height = 62.0
@@ -13,6 +14,10 @@ radius = 11.0
 script = ExtResource("2_lkvl6")
 charge_time = 1.0
 rest_time = 1.5
+frames_hit = Array[int]([])
+
+[node name="sprites" parent="." index="0" unique_id=1045706891]
+animation = &"walk"
 
 [node name="attack_range_area" type="Area2D" parent="." index="1" unique_id=86357474]
 
@@ -27,6 +32,9 @@ position = Vector2(21, 0)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_qf3h2")
 debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="StateMachine" parent="." index="4" unique_id=220821788]
+script = ExtResource("3_lkvl6")
 
 [connection signal="area_entered" from="attack_range_area" to="." method="_on_attack_range_area_area_entered"]
 [connection signal="area_exited" from="attack_range_area" to="." method="_on_attack_range_area_area_exited"]
