@@ -65,7 +65,7 @@ func get_hurt(damage: int, source_position: Vector2) -> void:
 	health -= damage
 	# Empuja al jugador desde donde se le golpe+o
 	var knockback_dir = (global_position - source_position).normalized()
-	if knockback_dir.x != 0: is_looking_right = knockback_dir.x < 0
+	is_looking_right = knockback_dir.x > 0
 
 	velocity = knockback_dir * knockback_force
 	if health <= 0: die()
