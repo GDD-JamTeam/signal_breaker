@@ -10,14 +10,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="." unique_id=1656975503]
+[node name="Contador" type="Label" parent="." unique_id=1656975503]
 layout_mode = 0
-offset_left = 556.0
-offset_top = 303.0
-offset_right = 596.0
-offset_bottom = 345.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 986.0
+offset_top = 245.0
+offset_right = 1026.0
+offset_bottom = 287.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 30
 text = "0x"

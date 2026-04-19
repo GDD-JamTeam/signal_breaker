@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://oghlcecibiqh" path="res://scripts/camera/camera_arm.gd" id="3_6mlmc"]
 [ext_resource type="PackedScene" uid="uid://cgxqk0tstvor8" path="res://scenes/enemies/tombo/tombo.tscn" id="4_rvtnc"]
 [ext_resource type="PackedScene" uid="uid://bp4wqu83usrny" path="res://scenes/ui/in_game_ui/barra_vida/barra_vida.tscn" id="6_nt7ja"]
+[ext_resource type="PackedScene" uid="uid://c20o36e5gu7l" path="res://scenes/ui/in_game_ui/contador_hits/contador_hits.tscn" id="7_0yxb7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_laajb"]
 shader = ExtResource("2_kn73h")
@@ -42,3 +43,5 @@ position = Vector2(-351, -215)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=648589014]
 
 [node name="barra_vida" parent="CanvasLayer" unique_id=1518591601 instance=ExtResource("6_nt7ja")]
+
+[node name="Control" parent="CanvasLayer" unique_id=559491559 instance=ExtResource("7_0yxb7")]
