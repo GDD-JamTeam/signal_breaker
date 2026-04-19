@@ -46,7 +46,8 @@ func move_to(pos: Vector2) -> void:
 
 ## Actualiza la velocidad según la dirección que se le diga
 func update_velocity(dir: Vector2) -> void:
-	is_looking_right = not is_zero_approx(dir.x) and dir.x < 0
+	if not is_zero_approx(dir.x):
+		is_looking_right = dir.x < 0
 	velocity = dir * speed
 
 

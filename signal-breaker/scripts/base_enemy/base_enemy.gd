@@ -15,6 +15,11 @@ var player: CharacterBody2D = null
 
 func get_target():
 	return get_target()
+## Actualiza la velocidad según la dirección que se le diga
+func update_velocity(dir: Vector2) -> void:
+	if not is_zero_approx(dir.x):
+		is_looking_right = not dir.x > 0
+	velocity = dir * speed
 
 func _ready() -> void:
 	disable_hitboxes()
