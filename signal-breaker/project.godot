@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="signal_breaker"
-run/main_scene="uid://bpk14i2pkl34i"
+run/main_scene="uid://bp4wqu83usrny"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://bpk14i2pkl34i"
 
 [dotnet]
 
@@ -85,3 +86,5 @@ right={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bpk14i2pkl34i"]
+[gd_scene format=3 uid="uid://d7v0g5f5ntju"]
 
 [ext_resource type="PackedScene" uid="uid://b2vcrjhp5s1k6" path="res://scenes/player/player.tscn" id="1_jsh2e"]
 [ext_resource type="PackedScene" uid="uid://b6m3qkjn5jamg" path="res://scenes/enemies/scholar/scholar.tscn" id="2_iow0t"]
@@ -37,3 +37,5 @@ material = SubResource("ShaderMaterial_laajb")
 instance_shader_parameters/direction = Vector2(0, -1)
 instance_shader_parameters/mask_vignette_center = Vector2(1.86, 0.3)
 position = Vector2(-351, -215)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=648589014]
