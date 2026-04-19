@@ -9,9 +9,7 @@ func start() -> void:
 	base_entity.hit_targets.clear()
 	base_entity.hitbox_active = false
 
-	# Elige una animación al azar
-	var attack_count = base_entity.attack_frames.size()
-	base_entity.attack_index = randi() % attack_count
+	# Elige una animación dependiendo del input
 	base_entity.animation_sprite.play(get_attack_animation())
 
 
@@ -22,4 +20,9 @@ func physics_update(_delta: float) -> void:
 
 ## Obtiene el nombre la animación de ataque
 func get_attack_animation() -> String:
+	if Input.is_action_just_pressed("attack_1"): base_entity.attack_index = 0
+	elif Input.is_action_just_pressed("attack_2"): base_entity.attack_index = 1
+	elif Input.is_action_just_pressed("attack_3"): base_entity.attack_index = 2
+	else: return "idle"
+
 	return "attack_%s" % (base_entity.attack_index + 1)

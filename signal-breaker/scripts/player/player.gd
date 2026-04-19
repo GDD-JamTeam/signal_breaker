@@ -15,6 +15,10 @@ var attack_frames = [
 @export var hitboxes_damage: Array[int] = [10, 15, 20]
 
 
+@onready var hitboxes_node: Node2D = $Attacks
+@onready var hitbox_node: CollisionShape2D = $hit_box
+
+
 ## Dirección de entrada
 var input_dir: Vector2
 

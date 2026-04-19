@@ -1,5 +1,6 @@
 class_name EntityAttack extends EntityState
 
+
 func start() -> void:
 	# Se pasa a Seeking si acaba la animación usando una señal
 	base_entity.animation_sprite.animation_finished.connect(

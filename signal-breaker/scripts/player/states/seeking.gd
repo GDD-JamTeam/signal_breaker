@@ -9,4 +9,4 @@ func physics_update(delta: float) -> void:
 		Input.is_action_just_pressed("attack_3")
 	): to_state.emit(PlayerAttack)
 
-	base_entity.move_direction(base_entity.input_dir)
+	base_entity.update_velocity(base_entity.input_dir)

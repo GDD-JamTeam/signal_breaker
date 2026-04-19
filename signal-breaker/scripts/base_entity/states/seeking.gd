@@ -15,3 +15,7 @@ func update_animation() -> void:
 	var new_anim := &"walk" if base_entity.velocity.length() > 10 else &"idle"
 	base_entity.animation_sprite.play(new_anim)
 	base_entity.animation_sprite.flip_h = base_entity.is_looking_right
+
+	# Voltea los ataques también
+	base_entity.hitboxes_node.scale.x = 1 if not base_entity.is_looking_right else -1
+	base_entity.hitbox_node.scale.x = 1 if not base_entity.is_looking_right else -1

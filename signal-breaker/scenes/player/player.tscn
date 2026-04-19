@@ -432,11 +432,11 @@ height = 50.0
 
 [node name="player" unique_id=1123628860 node_paths=PackedStringArray("hitboxes") instance=ExtResource("1_8afob")]
 script = ExtResource("2_p47bc")
-hitboxes = [NodePath("attack_1"), NodePath("attack_2"), NodePath("attack_3")]
+hitboxes = [NodePath("Attacks/attack_1"), NodePath("Attacks/attack_2"), NodePath("Attacks/attack_3")]
 hitboxes_damage = Array[int]([10, 15, 20])
 
 [node name="sprites" parent="." index="0" unique_id=1045706891]
-position = Vector2(11, -11)
+position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_kxw46")
 animation = &"attack_2"
 frame = 7
@@ -445,25 +445,27 @@ frame_progress = 1.0
 [node name="hit_box" parent="." index="1" unique_id=515622228]
 shape = SubResource("CapsuleShape2D_lvxji")
 
-[node name="attack_1" type="Area2D" parent="." index="2" unique_id=768908441]
+[node name="Attacks" type="Node2D" parent="." index="2" unique_id=1266279085]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_1" index="0" unique_id=1593471639]
+[node name="attack_1" type="Area2D" parent="Attacks" index="0" unique_id=768908441]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/attack_1" index="0" unique_id=1593471639]
 position = Vector2(25, -12)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_qek5x")
 debug_color = Color(1, 0, 0, 0.3529412)
 
-[node name="attack_2" type="Area2D" parent="." index="3" unique_id=2032813768]
+[node name="attack_2" type="Area2D" parent="Attacks" index="1" unique_id=2032813768]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_2" index="0" unique_id=1024516025]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/attack_2" index="0" unique_id=1024516025]
 position = Vector2(37, -4)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_5gtgg")
 debug_color = Color(0, 0.5882353, 0, 0.41960785)
 
-[node name="attack_3" type="Area2D" parent="." index="4" unique_id=1294742507]
+[node name="attack_3" type="Area2D" parent="Attacks" index="2" unique_id=1294742507]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_3" index="0" unique_id=1641109066]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/attack_3" index="0" unique_id=1641109066]
 position = Vector2(38, -1)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_h17s1")

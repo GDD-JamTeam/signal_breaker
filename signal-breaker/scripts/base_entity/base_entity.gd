@@ -36,14 +36,12 @@ func _physics_process(_delta: float) -> void:
 # TODO: para el enemigo
 func move_to(pos: Vector2) -> void:
 	var dir = (pos - global_position).normalized()
-	move_direction(dir)
+	update_velocity(dir)
 
 
-## Mueve la entidad en la dirección que se le diga
-func move_direction(dir: Vector2) -> void:
-	if dir.x != 0:
-		is_looking_right = dir.x < 0
-
+## Actualiza la velocidad según la dirección que se le diga
+func update_velocity(dir: Vector2) -> void:
+	is_looking_right = not is_zero_approx(dir.x) and dir.x < 0
 	velocity = dir * speed
 
 
