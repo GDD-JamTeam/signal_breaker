@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://dq112wur3i8de" path="res://scripts/ui/barra_vida.gd" id="1_vi051"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1bts"]
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi051"]
 bg_color = Color(0.12373352, 0.62109375, 0.22475982, 1)
