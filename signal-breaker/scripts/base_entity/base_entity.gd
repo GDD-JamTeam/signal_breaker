@@ -37,6 +37,8 @@ var hitbox_active: bool = false ## ! Para el jugador
 @export var charge_duration: float = 0.2
 ## Tiempo de descanso despues de un ataque
 @export var rest_duration: float = 0.2
+## Node de estado del ataque
+@export var attack_state_node: Node
 
 signal damaged(damage: int, source_position: Vector2)
 
@@ -45,6 +47,9 @@ func _physics_process(_delta: float) -> void:
 	
 func get_default_state() -> Script:
 	return default_state_node.get_script()
+
+func get_attack_state() -> Script:
+	return attack_state_node.get_script()
 
 # TODO: para el enemigo
 func move_to(pos: Vector2) -> void:

@@ -33,9 +33,10 @@ height = 62.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oty1y"]
 height = 38.0
 
-[node name="entity_base" type="CharacterBody2D" unique_id=1123628860 node_paths=PackedStringArray("default_state_node")]
+[node name="entity_base" type="CharacterBody2D" unique_id=1123628860 node_paths=PackedStringArray("default_state_node", "attack_state_node")]
 script = ExtResource("1_oty1y")
 default_state_node = NodePath("StateMachine/Seeking")
+attack_state_node = NodePath("StateMachine/Attack")
 
 [node name="sprites" type="AnimatedSprite2D" parent="." unique_id=1045706891]
 sprite_frames = SubResource("SpriteFrames_qkyy0")

@@ -26,7 +26,7 @@ func exit() -> void:
 
 
 func _on_timer_timeout() -> void:
-	to_state.emit(EntityAttack)
+	to_state.emit(base_entity.get_attack_state())
 
 
 func physics_update(_delta: float) -> void:
