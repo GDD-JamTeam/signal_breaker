@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://c1o6f35k4b6a5" path="res://assets/shaders/dust_disolve.gdshader" id="2_kn73h"]
 [ext_resource type="Script" uid="uid://oghlcecibiqh" path="res://scripts/camera/camera_arm.gd" id="3_6mlmc"]
 [ext_resource type="PackedScene" uid="uid://cgxqk0tstvor8" path="res://scenes/enemies/tombo/tombo.tscn" id="4_rvtnc"]
+[ext_resource type="PackedScene" uid="uid://bp4wqu83usrny" path="res://scenes/ui/in_game_ui/barra_vida/barra_vida.tscn" id="6_nt7ja"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_laajb"]
 shader = ExtResource("2_kn73h")
@@ -39,3 +40,5 @@ instance_shader_parameters/mask_vignette_center = Vector2(1.86, 0.3)
 position = Vector2(-351, -215)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=648589014]
+
+[node name="barra_vida" parent="CanvasLayer" unique_id=1518591601 instance=ExtResource("6_nt7ja")]
