@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bog3qr1x7e3xt" path="res://scenes/base_entity/base_entity.tscn" id="1_qf3h2"]
 [ext_resource type="Script" uid="uid://s4f2mn42i205" path="res://scripts/base_enemy/base_enemy.gd" id="2_lkvl6"]
-[ext_resource type="Script" uid="uid://bmgk2ollmk3dq" path="res://scripts/base_entity/state_machine.gd" id="3_lkvl6"]
 [ext_resource type="Script" uid="uid://1syscqh3lmql" path="res://scripts/base_enemy/states/seeking.gd" id="4_n763p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lkvl6"]
@@ -28,11 +27,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_satqt"]
-height = 62.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qf3h2"]
 radius = 11.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_satqt"]
+height = 62.0
 
 [node name="base_enemy" unique_id=1123628860 groups=["enemy"] instance=ExtResource("1_qf3h2")]
 script = ExtResource("2_lkvl6")
@@ -43,12 +42,6 @@ hurtbox_damage = 100.0
 sprite_frames = SubResource("SpriteFrames_lkvl6")
 animation = &"idle"
 
-[node name="attack_range_area" type="Area2D" parent="." index="1" unique_id=86357474]
-
-[node name="attack_range_shape" type="CollisionShape2D" parent="attack_range_area" index="0" unique_id=790022693]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_satqt")
-
 [node name="hurt_box" type="Area2D" parent="Attacks" parent_id_path=PackedInt32Array(1411341608) index="0" unique_id=56407681]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/hurt_box" index="0" unique_id=1386769232]
@@ -57,13 +50,16 @@ rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_qf3h2")
 debug_color = Color(1, 0, 0, 0.41960785)
 
-[node name="hurtbox_area" parent="." index="4" unique_id=564897120 groups=["enemy"]]
+[node name="attack_range_area" type="Area2D" parent="Attacks" parent_id_path=PackedInt32Array(1411341608) index="1" unique_id=86357474]
 
-[node name="StateMachine" parent="." index="5" unique_id=220821788]
-script = ExtResource("3_lkvl6")
+[node name="attack_range_shape" type="CollisionShape2D" parent="Attacks/attack_range_area" index="0" unique_id=790022693]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_satqt")
 
-[node name="Seeking" parent="StateMachine" index="1" unique_id=2014905553]
+[node name="hurtbox_area" parent="." index="3" unique_id=564897120 groups=["enemy"]]
+
+[node name="Seeking" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="1" unique_id=2014905553]
 script = ExtResource("4_n763p")
 
-[connection signal="body_entered" from="attack_range_area" to="." method="_on_attack_range_area_body_entered"]
-[connection signal="body_exited" from="attack_range_area" to="." method="_on_attack_range_area_body_exited"]
+[connection signal="body_entered" from="Attacks/attack_range_area" to="." method="_on_attack_range_area_body_entered"]
+[connection signal="body_exited" from="Attacks/attack_range_area" to="." method="_on_attack_range_area_body_exited"]
