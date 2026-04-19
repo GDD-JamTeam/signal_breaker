@@ -8,6 +8,13 @@ func start() -> void:
 		CONNECT_ONE_SHOT
 	)
 
+	# Configura las hitbox
+	base_entity.hit_targets.clear()
+	base_entity.hitbox_active = false
+
+	# Elige una animación dependiendo del input
+	base_entity.animation_sprite.play(get_attack_animation())
+
 
 func physics_update(_delta: float) -> void:
 	update_attack_hitbox()
@@ -17,6 +24,8 @@ func exit() -> void:
 	base_entity.disable_hitboxes()
 	base_entity.hitbox_active = false
 
+func get_attack_animation() -> String:
+	return "attack"
 
 func update_attack_hitbox() -> void:
 	var current_frame := base_entity.animation_sprite.frame

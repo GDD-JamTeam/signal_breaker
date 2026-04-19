@@ -11,10 +11,13 @@ class_name BaseEntity extends CharacterBody2D
 @export var knockback_force: float = 200.0
 ## Tiempo de aturdimiento
 @export var knockback_duration: float = 0.2
+## Estado base
+@export var default_state_node: Node
 
 
 @onready var animation_sprite: AnimatedSprite2D = $sprites
-
+@onready var hitbox_node: CollisionShape2D = $hit_box
+@onready var hitboxes_node: Node2D = $Attacks
 
 ## Índice de la animación de ataque
 var attack_index: int = 0
@@ -29,13 +32,24 @@ var is_looking_right: bool = true
 var hit_targets: Array ## ! Para el jugador
 var hitbox_active: bool = false ## ! Para el jugador
 
+@export_group("IA_config")
 ## Tiempo de espera para atacar
 @export var charge_duration: float = 0.2
 ## Tiempo de descanso despues de un ataque
 @export var rest_duration: float = 0.2
+## Node de estado del ataque
+@export var attack_state_node: Node
+
+signal damaged(damage: int, source_position: Vector2)
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
+	
+func get_default_state() -> Script:
+	return default_state_node.get_script()
+
+func get_attack_state() -> Script:
+	return attack_state_node.get_script()
 
 # TODO: para el enemigo
 func move_to(pos: Vector2) -> void:
@@ -45,7 +59,8 @@ func move_to(pos: Vector2) -> void:
 
 ## Actualiza la velocidad según la dirección que se le diga
 func update_velocity(dir: Vector2) -> void:
-	is_looking_right = not is_zero_approx(dir.x) and dir.x < 0
+	if not is_zero_approx(dir.x):
+		is_looking_right = dir.x < 0
 	velocity = dir * speed
 
 
@@ -55,10 +70,11 @@ func get_hurt(damage: int, source_position: Vector2) -> void:
 	disable_hitboxes()
 
 	health -= damage
-
 	# Empuja al jugador desde donde se le golpe+o
 	var knockback_dir = (global_position - source_position).normalized()
-	if knockback_dir.x != 0: is_looking_right = knockback_dir.x < 0
+	is_looking_right = knockback_dir.x > 0
+
+	damaged.emit(damage, source_position)
 
 	velocity = knockback_dir * knockback_force
 	if health <= 0: die()
@@ -77,6 +93,18 @@ func is_same_team(target: Node) -> bool:
 
 	return false
 
+## Aplica daño hacia la entidad con el área dada
+func apply_damage(area: Area2D, damage: int) -> void:
+	if not area.is_in_group("hurtbox"): return
+
+	# Verifica que sea una hitbox válida
+	var target = area.get_parent()
+	if target in hit_targets or is_same_team(target): return
+
+	# Aplica el daño y lo añade a la lista de objetivos golpeados
+	if target.has_method("get_hurt"):
+		target.get_hurt(damage, global_position)
+		hit_targets.append(target)
 
 #region Métodos vacíos (para implementar)
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bog3qr1x7e3xt"]
 
 [ext_resource type="Script" uid="uid://bkrudff3p8vmi" path="res://scripts/base_entity/base_entity.gd" id="1_oty1y"]
-[ext_resource type="Script" uid="uid://bxs53es51hc4u" path="res://addons/state_machine/state_machine.gd" id="2_xuira"]
+[ext_resource type="Script" uid="uid://bmgk2ollmk3dq" path="res://scripts/base_entity/state_machine.gd" id="2_oty1y"]
 [ext_resource type="Script" uid="uid://b6kf3hlfsc5y3" path="res://scripts/base_entity/states/stunned.gd" id="3_laajb"]
 [ext_resource type="Script" uid="uid://4r2bctyny113" path="res://scripts/base_entity/states/seeking.gd" id="4_4m6is"]
 [ext_resource type="Script" uid="uid://diksffnwv6f2t" path="res://scripts/base_entity/states/charge.gd" id="5_rst68"]
@@ -30,9 +30,13 @@ animations = [{
 radius = 19.0
 height = 62.0
 
-[node name="entity_base" type="CharacterBody2D" unique_id=1123628860 node_paths=PackedStringArray("animation_sprite")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oty1y"]
+height = 38.0
+
+[node name="entity_base" type="CharacterBody2D" unique_id=1123628860 node_paths=PackedStringArray("default_state_node", "attack_state_node")]
 script = ExtResource("1_oty1y")
-animation_sprite = NodePath("sprites")
+default_state_node = NodePath("StateMachine/Seeking")
+attack_state_node = NodePath("StateMachine/Attack")
 
 [node name="sprites" type="AnimatedSprite2D" parent="." unique_id=1045706891]
 sprite_frames = SubResource("SpriteFrames_qkyy0")
@@ -41,8 +45,18 @@ animation = &"hurt"
 [node name="hit_box" type="CollisionShape2D" parent="." unique_id=515622228]
 shape = SubResource("CapsuleShape2D_c503q")
 
-[node name="StateMachine" type="Node" parent="." unique_id=220821788 node_paths=PackedStringArray("controlled_node", "default_state")]
-script = ExtResource("2_xuira")
+[node name="Attacks" type="Node2D" parent="." unique_id=1411341608]
+
+[node name="hurtbox_area" type="Area2D" parent="." unique_id=564897120 groups=["hurtbox"]]
+
+[node name="hurtbox_son" type="CollisionShape2D" parent="hurtbox_area" unique_id=1647890027]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_oty1y")
+debug_color = Color(0, 0.6, 0, 0.41960785)
+
+[node name="StateMachine" type="Node" parent="." unique_id=220821788 node_paths=PackedStringArray("entity", "controlled_node", "default_state")]
+script = ExtResource("2_oty1y")
+entity = NodePath("..")
 controlled_node = NodePath("..")
 default_state = NodePath("Seeking")
 metadata/_custom_type_script = "uid://bxs53es51hc4u"

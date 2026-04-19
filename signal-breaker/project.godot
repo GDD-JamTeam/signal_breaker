@@ -31,6 +31,7 @@ folder_colors={
 
 player=""
 enemy=""
+hurtbox=""
 
 [input]
 
