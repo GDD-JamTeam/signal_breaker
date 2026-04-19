@@ -38,6 +38,8 @@ var hitbox_active: bool = false ## ! Para el jugador
 ## Tiempo de descanso despues de un ataque
 @export var rest_duration: float = 0.2
 
+signal damaged(damage: int, source_position: Vector2)
+
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
@@ -66,6 +68,8 @@ func get_hurt(damage: int, source_position: Vector2) -> void:
 	# Empuja al jugador desde donde se le golpe+o
 	var knockback_dir = (global_position - source_position).normalized()
 	is_looking_right = knockback_dir.x > 0
+
+	damaged.emit(damage, source_position)
 
 	velocity = knockback_dir * knockback_force
 	if health <= 0: die()
