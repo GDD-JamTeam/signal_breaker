@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpfn8u6piu3g3"
-path="res://.godot/imported/scholar_idle_0003.png-8a2f01a47e7e1d43911d50d4021caf38.ctex"
+uid="uid://mudeyk0pnvqh"
+path="res://.godot/imported/scholar_walk_0002.png-16045899c75e5fa9af80c3a6f8be922b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/scholar/scholar_idle_0003.png"
-dest_files=["res://.godot/imported/scholar_idle_0003.png-8a2f01a47e7e1d43911d50d4021caf38.ctex"]
+source_file="res://assets/sprites/scholar/scholar_walk_0002.png"
+dest_files=["res://.godot/imported/scholar_walk_0002.png-16045899c75e5fa9af80c3a6f8be922b.ctex"]
 
 [params]
 

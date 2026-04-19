@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh7dait7q0m4x"
-path="res://.godot/imported/scholar_moving_0003.png-d29eeda1619bd3bccd7177e7d2f2c479.ctex"
+uid="uid://4eqpcas1x2gh"
+path="res://.godot/imported/scholar_walk_0004.png-d59c9412984673ed5867203b56861b02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/scholar/scholar_moving_0003.png"
-dest_files=["res://.godot/imported/scholar_moving_0003.png-d29eeda1619bd3bccd7177e7d2f2c479.ctex"]
+source_file="res://assets/sprites/scholar/scholar_walk_0004.png"
+dest_files=["res://.godot/imported/scholar_walk_0004.png-d59c9412984673ed5867203b56861b02.ctex"]
 
 [params]
 

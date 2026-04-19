@@ -12,6 +12,7 @@
 shader = ExtResource("2_kn73h")
 
 [node name="World" type="Node2D" unique_id=989375550]
+y_sort_enabled = true
 
 [node name="base_enemy" parent="." unique_id=448653415 instance=ExtResource("2_iow0t")]
 material = SubResource("ShaderMaterial_laajb")
