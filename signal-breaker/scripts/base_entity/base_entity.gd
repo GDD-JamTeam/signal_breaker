@@ -30,6 +30,7 @@ var is_looking_right: bool = true
 var hit_targets: Array ## ! Para el jugador
 var hitbox_active: bool = false ## ! Para el jugador
 
+@export_group("IA_config")
 ## Tiempo de espera para atacar
 @export var charge_duration: float = 0.2
 ## Tiempo de descanso despues de un ataque
@@ -57,7 +58,6 @@ func get_hurt(damage: int, source_position: Vector2) -> void:
 	disable_hitboxes()
 
 	health -= damage
-
 	# Empuja al jugador desde donde se le golpe+o
 	var knockback_dir = (global_position - source_position).normalized()
 	if knockback_dir.x != 0: is_looking_right = knockback_dir.x < 0

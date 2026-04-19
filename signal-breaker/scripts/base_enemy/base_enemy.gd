@@ -13,16 +13,16 @@ var player: CharacterBody2D = null
 
 @onready var hurtbox: Area2D = $Attacks/hurt_box
 
-func get_on_range():
+func get_on_range() -> bool:
 	return on_range
 
-func get_target():
+func get_target() -> BaseEntity:
 	return player
 
 ## Actualiza la velocidad según la dirección que se le diga
 func update_velocity(dir: Vector2) -> void:
 	if not is_zero_approx(dir.x):
-		is_looking_right = not dir.x > 0
+		is_looking_right = dir.x > 0
 	velocity = dir * speed
 
 func _ready() -> void:
@@ -45,16 +45,14 @@ func disable_hitboxes() -> void:
 	hurtbox.monitoring = false
 	hurtbox.visible = false
 
-func _on_attack_range_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player"):
-		var body = area.get_parent()
+func _on_attack_range_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
 		if body is CharacterBody2D:
 			on_range = true
 
 
-func _on_attack_range_area_area_exited(area: Area2D) -> void:
-	if area.is_in_group("player"):
-		var body = area.get_parent()
+func _on_attack_range_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
 		if body is CharacterBody2D:
 			on_range = false
 
