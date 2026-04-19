@@ -30,6 +30,9 @@ animations = [{
 radius = 19.0
 height = 62.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oty1y"]
+height = 38.0
+
 [node name="entity_base" type="CharacterBody2D" unique_id=1123628860]
 script = ExtResource("1_oty1y")
 
@@ -41,6 +44,13 @@ animation = &"hurt"
 shape = SubResource("CapsuleShape2D_c503q")
 
 [node name="Attacks" type="Node2D" parent="." unique_id=1411341608]
+
+[node name="hurtbox_area" type="Area2D" parent="." unique_id=564897120 groups=["hurtbox"]]
+
+[node name="hurtbox_son" type="CollisionShape2D" parent="hurtbox_area" unique_id=1647890027]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_oty1y")
+debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="StateMachine" type="Node" parent="." unique_id=220821788 node_paths=PackedStringArray("controlled_node", "default_state")]
 script = ExtResource("2_xuira")
