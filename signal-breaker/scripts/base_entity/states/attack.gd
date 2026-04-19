@@ -2,9 +2,9 @@ class_name EntityAttack extends EntityState
 
 
 func start() -> void:
-	# Se pasa a Seeking si acaba la animación usando una señal
+	# Se pasa a Rest si acaba la animación usando una señal
 	base_entity.animation_sprite.animation_finished.connect(
-		func(): to_state.emit(EntitySeeking),
+		func(): to_state.emit(EntityRest),
 		CONNECT_ONE_SHOT
 	)
 

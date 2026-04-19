@@ -2,8 +2,11 @@ class_name PlayerAttack extends EntityAttack
 
 
 func start() -> void:
-	# Ejecuta el inicio de EntityAttack
-	super()
+	# Se pasa a Seeking si acaba la animación usando una señal
+	base_entity.animation_sprite.animation_finished.connect(
+		func(): to_state.emit(EntitySeeking),
+		CONNECT_ONE_SHOT
+	)
 
 	# Configura las hitbox
 	base_entity.hit_targets.clear()
