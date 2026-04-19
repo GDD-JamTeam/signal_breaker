@@ -15,4 +15,5 @@ func _ready() -> void:
 	player.get_hurt_signal.connect(_on_player_hurt)
 
 func _on_player_hurt():
-	value = player.get_health()
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "value", player.get_health(), 0.2).set_trans(Tween.TRANS_SINE)
