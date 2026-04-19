@@ -88,12 +88,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gegn"]
-height = 248.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0328"]
 radius = 14.0
 height = 31.999998
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gegn"]
+height = 248.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pp1gr"]
 height = 48.0
@@ -104,9 +104,11 @@ fire_node = NodePath("Attacks/fire_node")
 ticket = ExtResource("3_ao7g1")
 projectile_count = 3
 spread_angle = 45.0
+ticket_damage = 20.0
 attack_frames = Array[int]([])
 hurtbox_damage = 30.0
 speed = 60
+charge_duration = 1.0
 rest_duration = 1.0
 
 [node name="sprites" parent="." index="0" unique_id=1045706891]
@@ -115,16 +117,16 @@ sprite_frames = SubResource("SpriteFrames_ikuli")
 animation = &"attack"
 frame = 3
 
-[node name="attack_range_shape" parent="attack_range_area" parent_id_path=PackedInt32Array(86357474) index="0" unique_id=790022693]
-position = Vector2(-124, 0)
-shape = SubResource("CapsuleShape2D_7gegn")
-
 [node name="CollisionShape2D" parent="Attacks/hurt_box" parent_id_path=PackedInt32Array(56407681) index="0" unique_id=1386769232]
 position = Vector2(-19, 0)
 shape = SubResource("CapsuleShape2D_i0328")
 
 [node name="fire_node" type="Node2D" parent="Attacks" parent_id_path=PackedInt32Array(1411341608) index="1" unique_id=614811769]
 position = Vector2(-26, 0)
+
+[node name="attack_range_shape" parent="Attacks/attack_range_area" parent_id_path=PackedInt32Array(86357474) index="0" unique_id=790022693]
+position = Vector2(-124, 0)
+shape = SubResource("CapsuleShape2D_7gegn")
 
 [node name="hurtbox_son" parent="hurtbox_area" parent_id_path=PackedInt32Array(564897120) index="0" unique_id=1647890027]
 shape = SubResource("CapsuleShape2D_pp1gr")
