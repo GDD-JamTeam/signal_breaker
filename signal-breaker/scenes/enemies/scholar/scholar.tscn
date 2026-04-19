@@ -112,6 +112,7 @@ height = 142.0
 height = 42.0
 
 [node name="scholar" unique_id=1123628860 instance=ExtResource("1_q17wf")]
+attack_frames = Array[int]([0, 10])
 hurtbox_damage = 20.0
 speed = 80
 charge_duration = 1.0
@@ -132,6 +133,3 @@ shape = SubResource("CapsuleShape2D_3mjgm")
 
 [node name="hurtbox_son" parent="hurtbox_area" parent_id_path=PackedInt32Array(564897120) index="0" unique_id=1647890027]
 shape = SubResource("CapsuleShape2D_e1gke")
-
-[node name="StateMachine" parent="." index="5" unique_id=220821788 node_paths=PackedStringArray("entity")]
-entity = NodePath("..")
