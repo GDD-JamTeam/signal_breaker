@@ -12,9 +12,12 @@ var timer: float = 0.0
 var player: CharacterBody2D = null
 
 @onready var hurtbox: Area2D = $hurt_box
+func get_on_range():
+	return on_range
 
 func get_target():
-	return get_target()
+	return player
+
 ## Actualiza la velocidad según la dirección que se le diga
 func update_velocity(dir: Vector2) -> void:
 	if not is_zero_approx(dir.x):
