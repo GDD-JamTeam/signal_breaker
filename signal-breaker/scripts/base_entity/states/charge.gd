@@ -12,3 +12,9 @@ func start() -> void:
 func physics_update(_delta: float) -> void:
 	# Detiene a la entidad
 	base_entity.velocity = Vector2.ZERO
+	update_animation()
+
+
+## Actualiza la animación del personaje dependiendo de su dirección y velocidad
+func update_animation() -> void:
+	base_entity.animation_sprite.play(&"idle")
