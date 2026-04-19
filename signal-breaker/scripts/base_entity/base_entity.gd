@@ -11,6 +11,8 @@ class_name BaseEntity extends CharacterBody2D
 @export var knockback_force: float = 200.0
 ## Tiempo de aturdimiento
 @export var knockback_duration: float = 0.2
+## Estado base
+@export var default_state_node: Node
 
 
 @onready var animation_sprite: AnimatedSprite2D = $sprites
@@ -38,6 +40,9 @@ var hitbox_active: bool = false ## ! Para el jugador
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
+	
+func get_default_state() -> Script:
+	return default_state_node.get_script()
 
 # TODO: para el enemigo
 func move_to(pos: Vector2) -> void:
