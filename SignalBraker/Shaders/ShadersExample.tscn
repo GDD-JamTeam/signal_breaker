@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://r626nf45q4xx"]
+
+[ext_resource type="Shader" uid="uid://bv35e08xmtpm6" path="res://Shaders/VideoBeam.gdshader" id="1_6ddlt"]
+[ext_resource type="Texture2D" uid="uid://dfas44vsso5bl" path="res://icon.svg" id="2_fjpa0"]
+[ext_resource type="Shader" uid="uid://so7ms4jrx25c" path="res://Shaders/VideoBeam2.gdshader" id="3_7ice5"]
+[ext_resource type="Shader" uid="uid://de6tbdf6c5s1j" path="res://Shaders/OldProyector.gdshader" id="4_7jpt0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8ro0"]
+shader = ExtResource("1_6ddlt")
+shader_parameter/vignette_strength = 1.2
+shader_parameter/noise_strength = 0.03
+shader_parameter/scanline_strength = 0.04
+shader_parameter/washout = 0.15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_02rfw"]
+shader = ExtResource("3_7ice5")
+shader_parameter/vignette_strength = 1.2
+shader_parameter/noise_strength = 0.03
+shader_parameter/scanline_strength = 0.04
+shader_parameter/washout = 0.15
+shader_parameter/dust_strength = 0.35
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5x5sh"]
+shader = ExtResource("4_7jpt0")
+shader_parameter/flicker_strength = 0.05
+shader_parameter/grain_strength = 0.08
+shader_parameter/line_strength = 0.1
+shader_parameter/image_jitter = 0.002
+
+[node name="Node2D" type="Node2D" unique_id=1850298941]
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=911432030]
+material = SubResource("ShaderMaterial_e8ro0")
+position = Vector2(180, 0)
+texture = ExtResource("2_fjpa0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=323295826]
+material = SubResource("ShaderMaterial_02rfw")
+position = Vector2(350, 0)
+texture = ExtResource("2_fjpa0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1019915701]
+material = SubResource("ShaderMaterial_5x5sh")
+texture = ExtResource("2_fjpa0")
