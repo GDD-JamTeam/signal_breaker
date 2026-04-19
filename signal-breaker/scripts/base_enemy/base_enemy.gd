@@ -11,7 +11,8 @@ var timer: float = 0.0
 # target
 var player: CharacterBody2D = null
 
-@onready var hurtbox: Area2D = $hurt_box
+@onready var hurtbox: Area2D = $Attacks/hurt_box
+
 func get_on_range():
 	return on_range
 

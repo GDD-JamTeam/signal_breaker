@@ -15,7 +15,7 @@ class_name BaseEntity extends CharacterBody2D
 
 @onready var animation_sprite: AnimatedSprite2D = $sprites
 @onready var hitbox_node: CollisionShape2D = $hit_box
-
+@onready var hitboxes_node: Node2D = $Attacks
 
 ## Índice de la animación de ataque
 var attack_index: int = 0
