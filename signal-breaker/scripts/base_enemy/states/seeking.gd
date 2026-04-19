@@ -5,6 +5,7 @@ var target: BaseEntity
 # Called when the node enters the scene tree for the first time.
 func start() -> void:
 	super()
+	await base_entity.ready
 	if base_entity.has_method("get_target"):
 		target = base_entity.get_target()
 
@@ -17,5 +18,6 @@ func physics_update(_delta: float) -> void:
 	update_animation()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
