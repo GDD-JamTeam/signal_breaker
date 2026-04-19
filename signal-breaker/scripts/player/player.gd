@@ -18,6 +18,8 @@ var attack_frames = [
 ## Dirección de entrada
 var input_dir: Vector2
 
+signal get_hurt_signal()
+signal hit()
 
 func _ready() -> void:
 	# Desactiva los hitboxes
@@ -53,3 +55,22 @@ func disable_hitboxes() -> void:
 ## Obtiene el rango de frames de ataque
 func get_attack_frame_range() -> Array:
 	return attack_frames[attack_index]
+
+func get_health():
+	return health
+	
+func get_hurt(damage: int, source_position: Vector2) -> void:
+	super(damage, source_position)
+	get_hurt_signal.emit()
+
+func apply_damage(area: Area2D, damage: int) -> void:
+	var before := hit_targets.size()
+	
+	super(area, damage)
+	
+	var after := hit_targets.size()
+	
+	if after > before:
+		var target = area.get_parent()
+		hit.emit()
+	
