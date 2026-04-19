@@ -29,8 +29,32 @@ animations = [{
 }, {
 "duration": 0.5,
 "texture": ExtResource("5_2l5fb")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_e1gke")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_m7es3")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_5ewyl")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_2l5fb")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_e1gke")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_m7es3")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_5ewyl")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_2l5fb")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -78,18 +102,26 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xooi"]
-height = 138.0
+height = 94.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3mjgm"]
 radius = 11.0
 height = 142.0
 
-[node name="base_enemy" unique_id=1123628860 instance=ExtResource("1_q17wf")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1gke"]
+height = 42.0
+
+[node name="scholar" unique_id=1123628860 instance=ExtResource("1_q17wf")]
+hurtbox_damage = 20.0
+speed = 80
+charge_duration = 1.0
+rest_duration = 1.0
 
 [node name="sprites" parent="." index="0" unique_id=1045706891]
 position = Vector2(0, -2.3841858e-07)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_emrdp")
+animation = &"attack"
 
 [node name="attack_range_shape" parent="attack_range_area" parent_id_path=PackedInt32Array(86357474) index="0" unique_id=790022693]
 shape = SubResource("CapsuleShape2D_4xooi")
@@ -97,3 +129,9 @@ shape = SubResource("CapsuleShape2D_4xooi")
 [node name="CollisionShape2D" parent="Attacks/hurt_box" parent_id_path=PackedInt32Array(56407681) index="0" unique_id=1386769232]
 position = Vector2(0, 0)
 shape = SubResource("CapsuleShape2D_3mjgm")
+
+[node name="hurtbox_son" parent="hurtbox_area" parent_id_path=PackedInt32Array(564897120) index="0" unique_id=1647890027]
+shape = SubResource("CapsuleShape2D_e1gke")
+
+[node name="StateMachine" parent="." index="5" unique_id=220821788 node_paths=PackedStringArray("entity")]
+entity = NodePath("..")

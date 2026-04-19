@@ -34,7 +34,7 @@ height = 62.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qf3h2"]
 radius = 11.0
 
-[node name="base_enemy" unique_id=1123628860 instance=ExtResource("1_qf3h2")]
+[node name="base_enemy" unique_id=1123628860 groups=["enemy"] instance=ExtResource("1_qf3h2")]
 script = ExtResource("2_lkvl6")
 attack_frames = Array[int]([0, 0])
 hurtbox_damage = 100.0
@@ -57,11 +57,13 @@ rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_qf3h2")
 debug_color = Color(1, 0, 0, 0.41960785)
 
-[node name="StateMachine" parent="." index="4" unique_id=220821788]
+[node name="hurtbox_area" parent="." index="4" unique_id=564897120 groups=["enemy"]]
+
+[node name="StateMachine" parent="." index="5" unique_id=220821788]
 script = ExtResource("3_lkvl6")
 
 [node name="Seeking" parent="StateMachine" index="1" unique_id=2014905553]
 script = ExtResource("4_n763p")
 
-[connection signal="area_entered" from="attack_range_area" to="." method="_on_attack_range_area_area_entered"]
-[connection signal="area_exited" from="attack_range_area" to="." method="_on_attack_range_area_area_exited"]
+[connection signal="body_entered" from="attack_range_area" to="." method="_on_attack_range_area_body_entered"]
+[connection signal="body_exited" from="attack_range_area" to="." method="_on_attack_range_area_body_exited"]
