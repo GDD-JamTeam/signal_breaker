@@ -44,7 +44,7 @@ signal damaged(damage: int, source_position: Vector2)
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
-	
+
 func get_default_state() -> Script:
 	return default_state_node.get_script()
 
@@ -83,7 +83,23 @@ func get_hurt(damage: int, source_position: Vector2) -> void:
 ## Muere la entidad
 func die() -> void:
 	print("[BaseEntity] Muere la entidad %s" % name)
-	queue_free()
+
+	# Desactivamos el procesamiento de física y colisiones para que la entidad
+	# no siga interactuando con el mundo mientras se desvanece.
+	set_physics_process(false)
+	if hitbox_node: hitbox_node.set_deferred("disabled", true)
+
+	# Animar el parámetro 'progress' del shader de forma continua.
+	var tween = create_tween()
+	tween.tween_method(
+		func(valor: float): animation_sprite.set_instance_shader_parameter("progress", valor),
+		0.0, # Valor inicial
+		1.0, # Valor final
+		0.8 # Duración del efecto en segundos
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	# Una vez terminada la animación, liberamos la entidad.
+	tween.finished.connect(queue_free)
 
 
 ## Verifica que el objetivo a golpear sea del mismo equipo

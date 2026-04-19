@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://bog3qr1x7e3xt"]
 
 [ext_resource type="Script" uid="uid://bkrudff3p8vmi" path="res://scripts/base_entity/base_entity.gd" id="1_oty1y"]
+[ext_resource type="Shader" uid="uid://c1o6f35k4b6a5" path="res://assets/shaders/dust_disolve.gdshader" id="1_xuira"]
 [ext_resource type="Script" uid="uid://bmgk2ollmk3dq" path="res://scripts/base_entity/state_machine.gd" id="2_oty1y"]
 [ext_resource type="Script" uid="uid://b6kf3hlfsc5y3" path="res://scripts/base_entity/states/stunned.gd" id="3_laajb"]
 [ext_resource type="Script" uid="uid://4r2bctyny113" path="res://scripts/base_entity/states/seeking.gd" id="4_4m6is"]
 [ext_resource type="Script" uid="uid://diksffnwv6f2t" path="res://scripts/base_entity/states/charge.gd" id="5_rst68"]
 [ext_resource type="Script" uid="uid://cupgqqtoj82jy" path="res://scripts/base_entity/states/attack.gd" id="6_ivjlm"]
 [ext_resource type="Script" uid="uid://bhr215pl2e1qm" path="res://scripts/base_entity/states/rest.gd" id="7_pcqhv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xuira"]
+shader = ExtResource("1_xuira")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qkyy0"]
 animations = [{
@@ -39,6 +43,7 @@ default_state_node = NodePath("StateMachine/Seeking")
 attack_state_node = NodePath("StateMachine/Attack")
 
 [node name="sprites" type="AnimatedSprite2D" parent="." unique_id=1045706891]
+material = SubResource("ShaderMaterial_xuira")
 sprite_frames = SubResource("SpriteFrames_qkyy0")
 animation = &"hurt"
 
