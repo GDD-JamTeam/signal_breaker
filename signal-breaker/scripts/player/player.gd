@@ -16,7 +16,6 @@ var attack_frames = [
 
 
 @onready var hitboxes_node: Node2D = $Attacks
-@onready var hitbox_node: CollisionShape2D = $hit_box
 
 
 ## Dirección de entrada
@@ -57,17 +56,3 @@ func disable_hitboxes() -> void:
 ## Obtiene el rango de frames de ataque
 func get_attack_frame_range() -> Array:
 	return attack_frames[attack_index]
-
-
-## Aplica daño hacia la entidad con el área dada
-func apply_damage(area: Area2D, damage: int) -> void:
-	if not area.is_in_group("hurtbox"): return
-
-	# Verifica que sea una hitbox válida
-	var target = area.get_parent()
-	if target in hit_targets or is_same_team(target): return
-
-	# Aplica el daño y lo añade a la lista de objetivos golpeados
-	if target.has_method("get_hurt"):
-		target.get_hurt(damage, global_position)
-		hit_targets.append(target)
