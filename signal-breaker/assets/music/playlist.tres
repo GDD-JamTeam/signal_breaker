@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Playlist" format=3 uid="uid://b1xvg12ul86uk"]
+
+[ext_resource type="AudioStream" uid="uid://byrxqd04x15ae" path="res://assets/music/loop.wav" id="1_mkgpq"]
+[ext_resource type="Script" uid="uid://3dmneoaii8re" path="res://autoload/resources/playlist.gd" id="1_sp4e4"]
+
+[resource]
+script = ExtResource("1_sp4e4")
+items = Dictionary[String, Variant]({
+"battle": ExtResource("1_mkgpq")
+})

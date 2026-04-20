@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bog3qr1x7e3xt"]
+
+[ext_resource type="Script" uid="uid://bkrudff3p8vmi" path="res://scripts/base_entity/base_entity.gd" id="1_oty1y"]
+[ext_resource type="Shader" uid="uid://c1o6f35k4b6a5" path="res://assets/shaders/dust_disolve.gdshader" id="1_xuira"]
+[ext_resource type="Script" uid="uid://bmgk2ollmk3dq" path="res://scripts/base_entity/state_machine.gd" id="2_oty1y"]
+[ext_resource type="Script" uid="uid://b6kf3hlfsc5y3" path="res://scripts/base_entity/states/stunned.gd" id="3_laajb"]
+[ext_resource type="Script" uid="uid://4r2bctyny113" path="res://scripts/base_entity/states/seeking.gd" id="4_4m6is"]
+[ext_resource type="Script" uid="uid://diksffnwv6f2t" path="res://scripts/base_entity/states/charge.gd" id="5_rst68"]
+[ext_resource type="Script" uid="uid://cupgqqtoj82jy" path="res://scripts/base_entity/states/attack.gd" id="6_ivjlm"]
+[ext_resource type="Script" uid="uid://bhr215pl2e1qm" path="res://scripts/base_entity/states/rest.gd" id="7_pcqhv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xuira"]
+shader = ExtResource("1_xuira")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qkyy0"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c503q"]
+radius = 19.0
+height = 62.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oty1y"]
+height = 38.0
+
+[node name="entity_base" type="CharacterBody2D" unique_id=1123628860 node_paths=PackedStringArray("default_state_node", "attack_state_node")]
+script = ExtResource("1_oty1y")
+default_state_node = NodePath("StateMachine/Seeking")
+attack_state_node = NodePath("StateMachine/Attack")
+
+[node name="sprites" type="AnimatedSprite2D" parent="." unique_id=1045706891]
+material = SubResource("ShaderMaterial_xuira")
+sprite_frames = SubResource("SpriteFrames_qkyy0")
+animation = &"hurt"
+
+[node name="hit_box" type="CollisionShape2D" parent="." unique_id=515622228]
+shape = SubResource("CapsuleShape2D_c503q")
+
+[node name="Attacks" type="Node2D" parent="." unique_id=1411341608]
+
+[node name="hurtbox_area" type="Area2D" parent="." unique_id=564897120 groups=["hurtbox"]]
+
+[node name="hurtbox_son" type="CollisionShape2D" parent="hurtbox_area" unique_id=1647890027]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_oty1y")
+debug_color = Color(0, 0.6, 0, 0.41960785)
+
+[node name="StateMachine" type="Node" parent="." unique_id=220821788 node_paths=PackedStringArray("entity", "controlled_node", "default_state")]
+script = ExtResource("2_oty1y")
+entity = NodePath("..")
+controlled_node = NodePath("..")
+default_state = NodePath("Seeking")
+metadata/_custom_type_script = "uid://bxs53es51hc4u"
+
+[node name="Stunned" type="Node" parent="StateMachine" unique_id=35043778]
+script = ExtResource("3_laajb")
+
+[node name="Seeking" type="Node" parent="StateMachine" unique_id=2014905553]
+script = ExtResource("4_4m6is")
+
+[node name="Charge" type="Node" parent="StateMachine" unique_id=1891615566]
+script = ExtResource("5_rst68")
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=2033860285]
+script = ExtResource("6_ivjlm")
+
+[node name="Rest" type="Node" parent="StateMachine" unique_id=338252094]
+script = ExtResource("7_pcqhv")

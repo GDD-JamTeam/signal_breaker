@@ -4,9 +4,17 @@ var hits:int = 0
 var tween_pop: Tween
 var reset_timer: Timer
 var reset_token: int
+var player: Player
 
 func _ready() -> void:
-	# Conectar con señal de cuando recibe daño un enemigo
+	player = get_tree().get_first_node_in_group("player")
+	
+	if player == null:
+		print("[ContadorHits] No se encontro al jugador.")
+		return
+		
+	player.hit.connect(actualizar_contador)
+	
 	self.scale = Vector2.ZERO
 	self.text = ""
 	
@@ -16,12 +24,7 @@ func _ready() -> void:
 	reset_timer.one_shot = true
 	reset_timer.timeout.connect(reset_counter)
 	add_child(reset_timer)
-
-# SOLO TESTEO
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_left"):
-		actualizar_contador()
-
+		
 func actualizar_contador() -> void:
 	hits += 1
 	self.text = "x" + str(hits)
