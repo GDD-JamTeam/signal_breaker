@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://b10tg3vj6ocnc"]
 
-[ext_resource type="Texture2D" uid="uid://dq845473ta53" path="res://assets/sprites/tombo/ticket/istockphoto-2237366790-1024x1024.jpg" id="1_6th4b"]
 [ext_resource type="Script" uid="uid://ditix6d8bya0a" path="res://scripts/base_enemy/tombo/ticket/ticket.gd" id="1_xh3b7"]
+[ext_resource type="Texture2D" uid="uid://r0erj7dopmx5" path="res://assets/sprites/tombo/ticket/tombo_proyectile_0001.png" id="2_7okh1"]
+[ext_resource type="Texture2D" uid="uid://c43v8a682uqlh" path="res://assets/sprites/tombo/ticket/tombo_proyectile_0002.png" id="3_8brhq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xh3b7"]
 animations = [{
 "frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_7okh1")
+}, {
 "duration": 1.0,
-"texture": ExtResource("1_6th4b")
+"texture": ExtResource("3_8brhq")
 }],
 "loop": true,
 "name": &"default",
@@ -15,14 +19,18 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7okh1"]
+radius = 4.0
+height = 42.0
 
 [node name="ticket" type="Area2D" unique_id=172276598]
 script = ExtResource("1_xh3b7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=940745239]
-position = Vector2(0, 1)
-scale = Vector2(0.032812502, 0.029882811)
+texture_filter = 1
+position = Vector2(-4.7683716e-07, 0)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_xh3b7")
+frame_progress = 0.7877531
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=917686930]
 rotation = 1.5707964
