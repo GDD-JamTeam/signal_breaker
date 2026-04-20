@@ -96,3 +96,6 @@ shape = SubResource("CapsuleShape2D_422mo")
 [node name="attack_range_shape" parent="Attacks/attack_range_area" parent_id_path=PackedInt32Array(86357474) index="0" unique_id=790022693]
 position = Vector2(-65, -7)
 shape = SubResource("CapsuleShape2D_0ka7v")
+
+[node name="hurtbox_son" parent="hurtbox_area" parent_id_path=PackedInt32Array(564897120) index="0" unique_id=1647890027]
+position = Vector2(0, 6)

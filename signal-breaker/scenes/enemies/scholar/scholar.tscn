@@ -77,6 +77,7 @@ height = 142.0
 height = 94.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1gke"]
+radius = 14.0
 height = 42.0
 
 [node name="scholar" unique_id=1123628860 instance=ExtResource("1_q17wf")]
@@ -100,4 +101,5 @@ shape = SubResource("CapsuleShape2D_3mjgm")
 shape = SubResource("CapsuleShape2D_4xooi")
 
 [node name="hurtbox_son" parent="hurtbox_area" parent_id_path=PackedInt32Array(564897120) index="0" unique_id=1647890027]
+position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_e1gke")
