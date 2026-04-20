@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://dq58obj8t2sti"]
+
+[ext_resource type="Script" uid="uid://bj8owkbdvlu6e" path="res://scripts/items/signal/signal_spawner.gd" id="1_4mcoh"]
+[ext_resource type="Texture2D" uid="uid://bvrfhq5222w88" path="res://assets/sprites/signal/signal.png" id="1_njj8e"]
+[ext_resource type="Texture2D" uid="uid://s0d163givbsy" path="res://assets/sprites/scholar/scholar_idle_0001.png" id="2_4mcoh"]
+[ext_resource type="Script" uid="uid://d25ursks5pgu5" path="res://scripts/items/signal/enemy_data.gd" id="2_cp1qq"]
+[ext_resource type="Texture2D" uid="uid://ce3xh456vft2f" path="res://assets/sprites/tombo/tombo_idle_0001.png" id="3_kuror"]
+[ext_resource type="PackedScene" uid="uid://b6m3qkjn5jamg" path="res://scenes/enemies/scholar/scholar.tscn" id="3_om0c2"]
+[ext_resource type="PackedScene" uid="uid://cgxqk0tstvor8" path="res://scenes/enemies/tombo/tombo.tscn" id="4_ddiin"]
+[ext_resource type="Texture2D" uid="uid://br1sgv8j36toh" path="res://assets/sprites/worker/worker_idle_0001.png" id="4_ynxl0"]
+[ext_resource type="PackedScene" uid="uid://dn48oxb5cep5y" path="res://scenes/enemies/worker/worker.tscn" id="5_g8kem"]
+
+[sub_resource type="Resource" id="Resource_amiue"]
+script = ExtResource("2_cp1qq")
+scene = ExtResource("3_om0c2")
+animation = &"scolar"
+scale_time = 0.5
+metadata/_custom_type_script = "uid://d25ursks5pgu5"
+
+[sub_resource type="Resource" id="Resource_ap2jt"]
+script = ExtResource("2_cp1qq")
+scene = ExtResource("4_ddiin")
+animation = &"tombo"
+scale_time = 0.5
+metadata/_custom_type_script = "uid://d25ursks5pgu5"
+
+[sub_resource type="Resource" id="Resource_ppvw8"]
+script = ExtResource("2_cp1qq")
+scene = ExtResource("5_g8kem")
+animation = &"worker"
+scale_time = 0.5
+metadata/_custom_type_script = "uid://d25ursks5pgu5"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ex51b"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4mcoh")
+}],
+"loop": true,
+"name": &"scolar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kuror")
+}],
+"loop": true,
+"name": &"tombo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ynxl0")
+}],
+"loop": true,
+"name": &"worker",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kuror"]
+radius = 112.29426
+
+[node name="Signal" type="Node2D" unique_id=100524043 node_paths=PackedStringArray("spawn_node", "animated_sprite", "collision_shape", "trigger_area")]
+script = ExtResource("1_4mcoh")
+spawn_node = NodePath("Sprite2D/spawn_node")
+animated_sprite = NodePath("Sprite2D/spawn_node/AnimatedSprite2D")
+collision_shape = NodePath("spawn_signal_advertisment/CollisionShape2D")
+trigger_area = NodePath("spawn_signal_advertisment")
+enemies = Array[ExtResource("2_cp1qq")]([SubResource("Resource_amiue"), SubResource("Resource_ap2jt"), SubResource("Resource_ppvw8")])
+max_scale = 1.2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1017276136]
+position = Vector2(1.9999999, 0)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_njj8e")
+
+[node name="spawn_node" type="Node2D" parent="Sprite2D" unique_id=242455414]
+position = Vector2(-19.999998, -270)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D/spawn_node" unique_id=77219232]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_ex51b")
+animation = &"scolar"
+
+[node name="spawn_signal_advertisment" type="Area2D" parent="." unique_id=1837252751]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_signal_advertisment" unique_id=582244977]
+shape = SubResource("CircleShape2D_kuror")
+
+[connection signal="area_entered" from="spawn_signal_advertisment" to="." method="_on_spawn_signal_advertisment_area_entered"]
