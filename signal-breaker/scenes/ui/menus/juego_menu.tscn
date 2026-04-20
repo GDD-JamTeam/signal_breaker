@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://w3cccguhqyyp"]
 
 [ext_resource type="Script" uid="uid://beohv7kv7bicy" path="res://scripts/juego_menu.gd" id="1_hsl5g"]
+[ext_resource type="Shader" uid="uid://chkm6yue5ptxp" path="res://assets/shaders/blur.gdshader" id="2_ho7s1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l7f6w"]
+shader = ExtResource("2_ho7s1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ho7s1"]
+shader = ExtResource("2_ho7s1")
 
 [node name="JuegoMenu" type="Control" unique_id=764385593]
 process_mode = 3
@@ -14,7 +21,10 @@ script = ExtResource("1_hsl5g")
 
 [node name="Pausa" type="ColorRect" parent="." unique_id=1550308894]
 unique_name_in_owner = true
-visible = false
+material = SubResource("ShaderMaterial_l7f6w")
+instance_shader_parameters/blur_amount = 2.0
+instance_shader_parameters/tint_color = Color(0, 0, 0, 0.5)
+instance_shader_parameters/tint_strength = 0.5
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,55 +35,23 @@ color = Color(0, 0, 0, 0.29411766)
 
 [node name="Label" type="Label" parent="Pausa" unique_id=800327774]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -147.5
-offset_top = -247.5
-offset_right = 147.5
-offset_bottom = -194.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = -89.0
+offset_right = 423.0
+offset_bottom = -36.0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 38
-text = "PAUSA"
+text = "Pulsa Esc para volver"
 horizontal_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Pausa" unique_id=1562919570]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -147.5
-offset_top = -115.5
-offset_right = 147.5
-offset_bottom = 115.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 13
-alignment = 1
-
-[node name="Continuar" type="Button" parent="Pausa/VBoxContainer" unique_id=1780483015]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Continuar"
-
-[node name="Reiniciar" type="Button" parent="Pausa/VBoxContainer" unique_id=1538347127]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Reiniciar"
-
-[node name="Menu" type="Button" parent="Pausa/VBoxContainer" unique_id=765410498]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Volver al Menu"
 
 [node name="Victoria" type="ColorRect" parent="." unique_id=825356464]
 unique_name_in_owner = true
 visible = false
+material = SubResource("ShaderMaterial_ho7s1")
+instance_shader_parameters/tint_color = Color(0.21574123, 0.99323857, 0.27223137, 0.5019608)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,42 +60,39 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.7254902)
 
-[node name="Label" type="Label" parent="Victoria" unique_id=1487859815]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -70.0
-offset_top = 112.0
-offset_right = 70.0
-offset_bottom = 165.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 38
-text = "Victoria"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Victoria" unique_id=52175555]
+[node name="Contents" type="VBoxContainer" parent="Victoria" unique_id=107691140]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -147.0
-offset_top = -83.0
-offset_right = 148.0
-offset_bottom = 84.0
+offset_left = -105.0
+offset_top = -82.0
+offset_right = 105.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 135
+
+[node name="Label" type="Label" parent="Victoria/Contents" unique_id=1487859815]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "Victoria"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Victoria/Contents" unique_id=52175555]
+layout_mode = 2
 theme_override_constants/separation = 13
 alignment = 1
 
-[node name="Reiniciar" type="Button" parent="Victoria/VBoxContainer" unique_id=441285311]
+[node name="Reiniciar" type="Button" parent="Victoria/Contents/Buttons" unique_id=441285311]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Volver a Jugar"
 
-[node name="Menu" type="Button" parent="Victoria/VBoxContainer" unique_id=1297840549]
+[node name="Menu" type="Button" parent="Victoria/Contents/Buttons" unique_id=1297840549]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Volver al Menu"
@@ -173,10 +148,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Volver al Menu"
 
-[connection signal="pressed" from="Pausa/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
-[connection signal="pressed" from="Pausa/VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
-[connection signal="pressed" from="Pausa/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="Victoria/VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
-[connection signal="pressed" from="Victoria/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Victoria/Contents/Buttons/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Victoria/Contents/Buttons/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Muerte/VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
 [connection signal="pressed" from="Muerte/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

@@ -9,9 +9,7 @@ extends Control
 
 
 func _ready() -> void:
-	# TODO: cambiar la música de inicio si se puede
-	# Por ahora se quita
-	MusicManager.switch_music_playing(false)
+	MusicManager.play_music("battle")
 
 	# Desactivamos los botones
 	buttons.visible = false
