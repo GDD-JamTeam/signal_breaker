@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="signal_breaker"
-run/main_scene="uid://bpk14i2pkl34i"
+run/main_scene="uid://d7v0g5f5ntju"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="uid://bpk14i2pkl34i"
