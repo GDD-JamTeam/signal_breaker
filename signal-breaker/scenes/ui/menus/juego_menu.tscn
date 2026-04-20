@@ -1,56 +1,12 @@
 [gd_scene format=3 uid="uid://w3cccguhqyyp"]
 
-[ext_resource type="Texture2D" uid="uid://cw7oetru5dx5e" path="res://scenes/ui/menus/autobot.png" id="1_ho7s1"]
 [ext_resource type="Script" uid="uid://beohv7kv7bicy" path="res://scripts/juego_menu.gd" id="1_hsl5g"]
-[ext_resource type="Script" path="res://scripts/jugador_menu.gd" id="2_f5tlo"]
-[ext_resource type="Texture2D" uid="uid://cibou87vgajw2" path="res://scenes/ui/menus/decepticon.png" id="2_l7f6w"]
-[ext_resource type="Texture2D" uid="uid://3577t2sbr5gc" path="res://scenes/ui/menus/terrorcon.png" id="3_l7f6w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsl5g"]
-size = Vector2(276.62653, 276.70584)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5tlo"]
-size = Vector2(160.5, 173.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhcye"]
-size = Vector2(188, 203)
-
-[node name="JuegoMenu" type="Node2D" unique_id=1763632846]
+[node name="JuegoMenu" type="Control" unique_id=764385593]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_hsl5g")
-
-[node name="JugadorMenu" type="CharacterBody2D" parent="." unique_id=154359140]
-script = ExtResource("2_f5tlo")
-
-[node name="Sprite2D" type="Sprite2D" parent="JugadorMenu" unique_id=1172965459]
-position = Vector2(157.5, 264.5)
-scale = Vector2(0.29642856, 0.30357143)
-texture = ExtResource("1_ho7s1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JugadorMenu" unique_id=1544123419]
-position = Vector2(157, 264)
-scale = Vector2(0.29642856, 0.30357143)
-shape = SubResource("RectangleShape2D_hsl5g")
-
-[node name="Enemigo1" type="Area2D" parent="." unique_id=533673202]
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemigo1" unique_id=96930910]
-position = Vector2(602, 174.99997)
-scale = Vector2(0.17777778, 0.18148148)
-texture = ExtResource("2_l7f6w")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo1" unique_id=363985140]
-position = Vector2(602.75, 173.25)
-shape = SubResource("RectangleShape2D_f5tlo")
-
-[node name="Enemigo2" type="Area2D" parent="." unique_id=1915691226]
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemigo2" unique_id=1943141249]
-position = Vector2(461, 434)
-texture = ExtResource("3_l7f6w")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo2" unique_id=344069012]
-position = Vector2(460, 433)
-shape = SubResource("RectangleShape2D_dhcye")
 
 [node name="Menus" type="CanvasLayer" parent="." unique_id=1330881492]
 process_mode = 3
@@ -205,8 +161,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Volver al Menu"
 
-[connection signal="body_entered" from="Enemigo1" to="." method="_on_enemigo_1_body_entered"]
-[connection signal="body_entered" from="Enemigo2" to="." method="_on_enemigo_2_body_entered"]
 [connection signal="pressed" from="Menus/Pausa/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
 [connection signal="pressed" from="Menus/Pausa/VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
 [connection signal="pressed" from="Menus/Pausa/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

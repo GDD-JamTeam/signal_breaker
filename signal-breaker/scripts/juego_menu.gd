@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 @onready var menu_pausa = $Menus/Pausa
@@ -14,7 +14,7 @@ func _ready():
 
 
 func _process(_delta):
-	if not Input.is_action_just_pressed("ui_cancel"): return
+	if not Input.is_action_just_pressed("quit"): return
 
 	if not get_tree().paused:
 		pausar_juego()
@@ -23,8 +23,8 @@ func _process(_delta):
 
 
 func pausar_juego():
-	get_tree().paused = true
 	menu_pausa.show()
+	get_tree().paused = true
 
 
 func reanudar_juego():
@@ -33,13 +33,13 @@ func reanudar_juego():
 
 
 func mostrar_muerte():
-	get_tree().paused = true
 	menu_muerte.show()
+	get_tree().paused = true
 
 
 func mostrar_victoria():
-	get_tree().paused = true
 	menu_victoria.show()
+	get_tree().paused = true
 
 
 func _on_continuar_pressed() -> void:
