@@ -16,15 +16,15 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="uid://bpk14i2pkl34i"
 
-[display]
-
-window/size/viewport_width=1280
-window/size/viewport_height=780
-
 [autoload]
 
 MusicManager="*uid://bmyo0wykadt4t"
 SceneManager="*uid://bgtg5swvnyfee"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [dotnet]
 
