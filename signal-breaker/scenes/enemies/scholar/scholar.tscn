@@ -1,99 +1,67 @@
 [gd_scene format=3 uid="uid://b6m3qkjn5jamg"]
 
 [ext_resource type="PackedScene" uid="uid://vv368qukv2px" path="res://scenes/enemies/base_enemy.tscn" id="1_q17wf"]
-[ext_resource type="Texture2D" uid="uid://bw8pihy0bnhg7" path="res://assets/sprites/scholar/scholar_attack_0001.png" id="2_e1gke"]
-[ext_resource type="Texture2D" uid="uid://dim5pjx7n5ij4" path="res://assets/sprites/scholar/scholar_attack_0002.png" id="3_m7es3"]
-[ext_resource type="Texture2D" uid="uid://coiiqwexc4l2x" path="res://assets/sprites/scholar/scholar_attack_0003.png" id="4_5ewyl"]
-[ext_resource type="Texture2D" uid="uid://bc251rrdkxfvd" path="res://assets/sprites/scholar/scholar_attack_0004.png" id="5_2l5fb"]
-[ext_resource type="Texture2D" uid="uid://bupvtm75xwtea" path="res://assets/sprites/scholar/scholar_hurt_0001.png" id="6_6gyf3"]
-[ext_resource type="Texture2D" uid="uid://ccjtqq41ju28a" path="res://assets/sprites/scholar/scholar_idle_0001.png" id="7_y7i4a"]
-[ext_resource type="Texture2D" uid="uid://c54vsye1nsih8" path="res://assets/sprites/scholar/scholar_idle_0002.png" id="8_33n0s"]
-[ext_resource type="Texture2D" uid="uid://cpfn8u6piu3g3" path="res://assets/sprites/scholar/scholar_idle_0003.png" id="9_q2yjm"]
-[ext_resource type="Texture2D" uid="uid://be6sv4yriwygs" path="res://assets/sprites/scholar/scholar_idle_0004.png" id="10_8ila8"]
-[ext_resource type="Texture2D" uid="uid://cjw8vxqbf88t0" path="res://assets/sprites/scholar/scholar_moving_0001.png" id="11_udbbs"]
-[ext_resource type="Texture2D" uid="uid://rgy8v2imk6la" path="res://assets/sprites/scholar/scholar_moving_0002.png" id="12_ba8a3"]
-[ext_resource type="Texture2D" uid="uid://bh7dait7q0m4x" path="res://assets/sprites/scholar/scholar_moving_0003.png" id="13_sshww"]
-[ext_resource type="Texture2D" uid="uid://d37mdxym6a8nx" path="res://assets/sprites/scholar/scholar_moving_0004.png" id="14_61p7w"]
+[ext_resource type="Texture2D" uid="uid://bqqgube4qw7jl" path="res://assets/sprites/scholar/scholar_attack_0001.png" id="2_e1gke"]
+[ext_resource type="Texture2D" uid="uid://cwjsv14df47wn" path="res://assets/sprites/scholar/scholar_attack_0002.png" id="3_m7es3"]
+[ext_resource type="Texture2D" uid="uid://xdt16p6umftm" path="res://assets/sprites/scholar/scholar_attack_0003.png" id="4_5ewyl"]
+[ext_resource type="Texture2D" uid="uid://b1nim0706kr2e" path="res://assets/sprites/scholar/scholar_attack_0004.png" id="5_2l5fb"]
+[ext_resource type="Texture2D" uid="uid://cu64icwxjkggy" path="res://assets/sprites/scholar/scholar_hurt_0001.png" id="6_e1gke"]
+[ext_resource type="Texture2D" uid="uid://s0d163givbsy" path="res://assets/sprites/scholar/scholar_idle_0001.png" id="7_vvocx"]
+[ext_resource type="Texture2D" uid="uid://ddtxv86yddtnv" path="res://assets/sprites/scholar/scholar_idle_0002.png" id="8_kfnxy"]
+[ext_resource type="Texture2D" uid="uid://by0pwvl7it47g" path="res://assets/sprites/scholar/scholar_moving_0001.png" id="11_udbbs"]
+[ext_resource type="Texture2D" uid="uid://qf24lnhkvqga" path="res://assets/sprites/scholar/scholar_moving_0002.png" id="12_ba8a3"]
+[ext_resource type="Texture2D" uid="uid://dg2t1jyoqecpb" path="res://assets/sprites/scholar/scholar_moving_0003.png" id="13_sshww"]
+[ext_resource type="Texture2D" uid="uid://dhnvwsb68uly5" path="res://assets/sprites/scholar/scholar_moving_0004.png" id="14_61p7w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_emrdp"]
 animations = [{
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("2_e1gke")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("3_m7es3")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("4_5ewyl")
 }, {
-"duration": 0.5,
-"texture": ExtResource("5_2l5fb")
-}, {
-"duration": 0.5,
-"texture": ExtResource("2_e1gke")
-}, {
-"duration": 0.5,
-"texture": ExtResource("3_m7es3")
-}, {
-"duration": 0.5,
-"texture": ExtResource("4_5ewyl")
-}, {
-"duration": 0.5,
-"texture": ExtResource("5_2l5fb")
-}, {
-"duration": 0.5,
-"texture": ExtResource("2_e1gke")
-}, {
-"duration": 0.5,
-"texture": ExtResource("3_m7es3")
-}, {
-"duration": 0.5,
-"texture": ExtResource("4_5ewyl")
-}, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("5_2l5fb")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_6gyf3")
+"texture": ExtResource("6_e1gke")
 }],
 "loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
-"texture": ExtResource("7_y7i4a")
+"duration": 1.0,
+"texture": ExtResource("7_vvocx")
 }, {
-"duration": 0.5,
-"texture": ExtResource("8_33n0s")
-}, {
-"duration": 0.5,
-"texture": ExtResource("9_q2yjm")
-}, {
-"duration": 0.5,
-"texture": ExtResource("10_8ila8")
+"duration": 1.0,
+"texture": ExtResource("8_kfnxy")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("11_udbbs")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("12_ba8a3")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("13_sshww")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("14_61p7w")
 }],
 "loop": true,
@@ -101,12 +69,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xooi"]
-height = 94.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3mjgm"]
 radius = 11.0
 height = 142.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xooi"]
+height = 94.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1gke"]
 height = 42.0
@@ -120,16 +88,16 @@ rest_duration = 1.0
 
 [node name="sprites" parent="." index="0" unique_id=1045706891]
 position = Vector2(0, -2.3841858e-07)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.13200009, 0.132)
 sprite_frames = SubResource("SpriteFrames_emrdp")
 animation = &"attack"
-
-[node name="attack_range_shape" parent="attack_range_area" parent_id_path=PackedInt32Array(86357474) index="0" unique_id=790022693]
-shape = SubResource("CapsuleShape2D_4xooi")
 
 [node name="CollisionShape2D" parent="Attacks/hurt_box" parent_id_path=PackedInt32Array(56407681) index="0" unique_id=1386769232]
 position = Vector2(0, 0)
 shape = SubResource("CapsuleShape2D_3mjgm")
+
+[node name="attack_range_shape" parent="Attacks/attack_range_area" parent_id_path=PackedInt32Array(86357474) index="0" unique_id=790022693]
+shape = SubResource("CapsuleShape2D_4xooi")
 
 [node name="hurtbox_son" parent="hurtbox_area" parent_id_path=PackedInt32Array(564897120) index="0" unique_id=1647890027]
 shape = SubResource("CapsuleShape2D_e1gke")

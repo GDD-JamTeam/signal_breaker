@@ -16,10 +16,15 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="uid://bpk14i2pkl34i"
 
+[autoload]
+
+MusicManager="*uid://bmyo0wykadt4t"
+SceneManager="*uid://bgtg5swvnyfee"
+
 [display]
 
 window/size/viewport_width=1280
-window/size/viewport_height=780
+window/size/viewport_height=720
 
 [dotnet]
 
@@ -32,7 +37,9 @@ movie_writer/movie_file="C:/Users/LENOVO/Desktop/Programacion/Proyectos Godot/ds
 [file_customization]
 
 folder_colors={
+"res://addons/": "green",
 "res://assets/": "yellow",
+"res://autoload/": "teal",
 "res://scenes/": "purple",
 "res://scripts/": "blue"
 }
@@ -42,6 +49,7 @@ folder_colors={
 player=""
 enemy=""
 hurtbox=""
+hitbox=""
 
 [input]
 
