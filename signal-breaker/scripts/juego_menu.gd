@@ -1,10 +1,9 @@
 class_name JuegoMenu extends Control
 
 
-@onready var canvas_layer: CanvasLayer = $Menus
-@onready var menu_pausa: ColorRect = $Menus/Pausa
-@onready var menu_muerte: ColorRect = $Menus/Muerte
-@onready var menu_victoria: ColorRect = $Menus/Victoria
+@onready var menu_pausa: ColorRect = %Pausa
+@onready var menu_muerte: ColorRect = %Muerte
+@onready var menu_victoria: ColorRect = %Victoria
 
 
 func _ready():
@@ -27,6 +26,7 @@ func _process(_delta):
 
 
 func pausar_juego():
+	if menu_muerte.visible or menu_victoria.visible: return
 	menu_pausa.show()
 	get_tree().paused = true
 
