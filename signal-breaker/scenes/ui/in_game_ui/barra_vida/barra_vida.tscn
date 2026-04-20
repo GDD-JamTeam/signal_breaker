@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bp4wqu83usrny"]
+
+[ext_resource type="Script" uid="uid://dq112wur3i8de" path="res://scripts/ui/barra_vida.gd" id="1_vi051"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1bts"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi051"]
+bg_color = Color(0.12373352, 0.62109375, 0.22475982, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="barra_vida" type="Control" unique_id=1518591601]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="barra_progreso" type="ProgressBar" parent="." unique_id=377717593]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01041666
+anchor_top = 0.016975308
+anchor_right = 0.44444445
+anchor_bottom = 0.052469134
+offset_right = -300.0
+offset_bottom = -13.0
+theme_override_styles/background = SubResource("StyleBoxFlat_r1bts")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vi051")
+value = 100.0
+script = ExtResource("1_vi051")
+metadata/_edit_use_anchors_ = true

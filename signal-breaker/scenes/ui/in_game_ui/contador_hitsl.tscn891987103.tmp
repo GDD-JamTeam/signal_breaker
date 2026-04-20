@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c20o36e5gu7l"]
+
+[ext_resource type="Script" uid="uid://bma72a03qbx2n" path="res://scripts/hit_counter.gd" id="1_i78qv"]
+
+[node name="Control" type="Control" unique_id=559491559 node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_i78qv")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=1656975503]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0x"

@@ -14,10 +14,20 @@ config/name="signal_breaker"
 run/main_scene="uid://bpk14i2pkl34i"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://bpk14i2pkl34i"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=780
 
 [dotnet]
 
 project/assembly_name="signal_breaker"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/LENOVO/Desktop/Programacion/Proyectos Godot/ds-4/movies/gameplay.avi"
 
 [file_customization]
 
@@ -84,4 +94,7 @@ right={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
