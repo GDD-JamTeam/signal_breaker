@@ -5,14 +5,17 @@
 [ext_resource type="Shader" uid="uid://c1o6f35k4b6a5" path="res://assets/shaders/dust_disolve.gdshader" id="2_kn73h"]
 [ext_resource type="PackedScene" uid="uid://dq58obj8t2sti" path="res://scenes/world_items/signal/signal_spawner.tscn" id="6_0yxb7"]
 [ext_resource type="PackedScene" uid="uid://bp4wqu83usrny" path="res://scenes/ui/in_game_ui/barra_vida/barra_vida.tscn" id="6_nt7ja"]
+[ext_resource type="PackedScene" uid="uid://w3cccguhqyyp" path="res://scenes/ui/menus/juego_menu.tscn" id="6_rq8nl"]
 [ext_resource type="PackedScene" uid="uid://c20o36e5gu7l" path="res://scenes/ui/in_game_ui/contador_hits/contador_hits.tscn" id="7_0yxb7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_laajb"]
 shader = ExtResource("2_kn73h")
 
-[node name="World" type="Node2D" unique_id=989375550]
+[node name="World" type="Node2D" unique_id=989375550 node_paths=PackedStringArray("player", "menu")]
 y_sort_enabled = true
 script = ExtResource("1_kn73h")
+player = NodePath("player")
+menu = NodePath("CanvasLayer/JuegoMenu")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=235019019]
 zoom = Vector2(1.58, 1.58)
@@ -32,6 +35,8 @@ remote_path = NodePath("../../Camera2D")
 [node name="barra_vida" parent="CanvasLayer" unique_id=1518591601 instance=ExtResource("6_nt7ja")]
 
 [node name="Control" parent="CanvasLayer" unique_id=559491559 instance=ExtResource("7_0yxb7")]
+
+[node name="JuegoMenu" parent="CanvasLayer" unique_id=1763632846 instance=ExtResource("6_rq8nl")]
 
 [node name="Signal" parent="." unique_id=100524043 node_paths=PackedStringArray("parent_node") instance=ExtResource("6_0yxb7")]
 position = Vector2(218, -72)

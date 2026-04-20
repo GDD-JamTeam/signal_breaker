@@ -1,6 +1,11 @@
 class_name Player extends BaseEntity
 
 
+signal get_hurt_signal()
+signal hit()
+signal die_signal()
+
+
 ## Frames a los que se ataca, como rangos
 var attack_frames = [
 	[2, 3], # attack_1
@@ -17,9 +22,6 @@ var attack_frames = [
 
 ## Dirección de entrada
 var input_dir: Vector2
-
-signal get_hurt_signal()
-signal hit()
 
 func _ready() -> void:
 	# Desactiva los hitboxes
@@ -44,7 +46,6 @@ func enable_hitbox(index: int) -> void:
 	hitboxes[index].set_deferred("monitoring", true)
 	hitboxes[index].visible = true
 	hitboxes[index].set_deferred("monitorable", true)
-	
 
 
 ## Desactiva las hitbox cuando no se ataca
@@ -59,21 +60,29 @@ func disable_hitboxes() -> void:
 func get_attack_frame_range() -> Array:
 	return attack_frames[attack_index]
 
+
 func get_health():
 	return health
-	
+
+
 func get_hurt(damage: int, source_position: Vector2) -> void:
 	super(damage, source_position)
 	get_hurt_signal.emit()
 
+
+## Avisa de la muerte del jugador y muere
+func die() -> void:
+	die_signal.emit()
+	super()
+
+
 func apply_damage(area: Area2D, damage: int) -> void:
 	var before := hit_targets.size()
-	
+
 	super(area, damage)
-	
+
 	var after := hit_targets.size()
-	
+
 	if after > before:
-		var target = area.get_parent()
+		var _target = area.get_parent()
 		hit.emit()
-	
