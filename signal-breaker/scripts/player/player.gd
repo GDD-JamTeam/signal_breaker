@@ -41,18 +41,18 @@ func _physics_process(delta: float) -> void:
 
 ## Activa la hitbox indicada para dar daño
 func enable_hitbox(index: int) -> void:
-	hitboxes[index].monitoring = true
+	hitboxes[index].set_deferred("monitoring", true)
 	hitboxes[index].visible = true
-	hitboxes[index].monitorable = true
+	hitboxes[index].set_deferred("monitorable", true)
 	
 
 
 ## Desactiva las hitbox cuando no se ataca
 func disable_hitboxes() -> void:
 	for hitbox in hitboxes:
-		hitbox.monitoring = false
+		hitbox.set_deferred("monitoring", false)
 		hitbox.visible = false
-		hitbox.monitorable = false
+		hitbox.set_deferred("monitorable", false)
 
 
 ## Obtiene el rango de frames de ataque
