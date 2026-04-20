@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://dn48oxb5cep5y"]
+
+[ext_resource type="PackedScene" uid="uid://vv368qukv2px" path="res://scenes/enemies/base_enemy.tscn" id="1_qt8i8"]
+[ext_resource type="Texture2D" uid="uid://udy3uwalgyrw" path="res://assets/sprites/worker/worker_attack_0001.png" id="2_0ka7v"]
+[ext_resource type="Texture2D" uid="uid://bcthw7nluix7c" path="res://assets/sprites/worker/worker_attack_0002.png" id="3_422mo"]
+[ext_resource type="Texture2D" uid="uid://cwumaxp2pfh85" path="res://assets/sprites/worker/worker_attack_0003.png" id="4_kib2j"]
+[ext_resource type="Texture2D" uid="uid://cl3phxxry4j3b" path="res://assets/sprites/worker/worker_attack_0004.png" id="5_r7rfs"]
+[ext_resource type="Texture2D" uid="uid://cosetj46fg0f2" path="res://assets/sprites/worker/worker_hurt_0001.png" id="6_46gjj"]
+[ext_resource type="Texture2D" uid="uid://br1sgv8j36toh" path="res://assets/sprites/worker/worker_idle_0001.png" id="7_2nq8u"]
+[ext_resource type="Texture2D" uid="uid://btuhgmemyix8p" path="res://assets/sprites/worker/worker_idle_0002.png" id="8_e1wd0"]
+[ext_resource type="Texture2D" uid="uid://dsgakmxcu55vp" path="res://assets/sprites/worker/worker_moving_0001.png" id="9_k1i5e"]
+[ext_resource type="Texture2D" uid="uid://b8jj11ixna47l" path="res://assets/sprites/worker/worker_moving_0002.png" id="10_30pl8"]
+[ext_resource type="Texture2D" uid="uid://bjdfvg7w0be4x" path="res://assets/sprites/worker/worker_moving_0003.png" id="11_hbf24"]
+[ext_resource type="Texture2D" uid="uid://faenlhyt8xwh" path="res://assets/sprites/worker/worker_moving_0004.png" id="12_jmll4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ah1j"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_0ka7v")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_422mo")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_kib2j")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_r7rfs")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_46gjj")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("7_2nq8u")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_e1wd0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("9_k1i5e")
+}, {
+"duration": 0.5,
+"texture": ExtResource("10_30pl8")
+}, {
+"duration": 0.5,
+"texture": ExtResource("11_hbf24")
+}, {
+"duration": 0.5,
+"texture": ExtResource("12_jmll4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_422mo"]
+radius = 14.0
+height = 38.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ka7v"]
+height = 62.0
+
+[node name="worker" unique_id=1123628860 instance=ExtResource("1_qt8i8")]
+attack_frames = Array[int]([1, 2])
+hurtbox_damage = 40.0
+speed = 80
+knockback_force = 100.0
+rest_duration = 1.0
+
+[node name="sprites" parent="." index="0" unique_id=1045706891]
+scale = Vector2(0.132, 0.132)
+sprite_frames = SubResource("SpriteFrames_7ah1j")
+animation = &"walk"
+
+[node name="CollisionShape2D" parent="Attacks/hurt_box" parent_id_path=PackedInt32Array(56407681) index="0" unique_id=1386769232]
+position = Vector2(-78, -4)
+shape = SubResource("CapsuleShape2D_422mo")
+
+[node name="attack_range_shape" parent="Attacks/attack_range_area" parent_id_path=PackedInt32Array(86357474) index="0" unique_id=790022693]
+position = Vector2(-65, -7)
+shape = SubResource("CapsuleShape2D_0ka7v")
