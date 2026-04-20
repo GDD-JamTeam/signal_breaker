@@ -1,9 +1,10 @@
-extends Control
+class_name JuegoMenu extends Control
 
 
-@onready var menu_pausa = $Menus/Pausa
-@onready var menu_muerte = $Menus/Muerte
-@onready var menu_victoria = $Menus/Victoria
+@onready var canvas_layer: CanvasLayer = $Menus
+@onready var menu_pausa: ColorRect = $Menus/Pausa
+@onready var menu_muerte: ColorRect = $Menus/Muerte
+@onready var menu_victoria: ColorRect = $Menus/Victoria
 
 
 func _ready():
@@ -22,6 +23,9 @@ func _process(_delta):
 		reanudar_juego()
 
 
+#region Funciones
+
+
 func pausar_juego():
 	menu_pausa.show()
 	get_tree().paused = true
@@ -33,6 +37,8 @@ func reanudar_juego():
 
 
 func mostrar_muerte():
+	# Espera un segundo antes de mostrar el menú
+	await get_tree().create_timer(1.0).timeout
 	menu_muerte.show()
 	get_tree().paused = true
 
@@ -40,6 +46,12 @@ func mostrar_muerte():
 func mostrar_victoria():
 	menu_victoria.show()
 	get_tree().paused = true
+
+
+#endregion
+
+
+#region Botones
 
 
 func _on_continuar_pressed() -> void:
@@ -56,13 +68,4 @@ func _on_menu_pressed() -> void:
 	SceneManager.change_to_scene("start_menu")
 
 
-func _on_enemigo_1_body_entered(body: Node2D) -> void:
-	# Verificamos que quien chocó fue el Jugador
-	if body.name == "JugadorMenu":
-		mostrar_muerte()
-
-
-func _on_enemigo_2_body_entered(body: Node2D) -> void:
-	# Verificamos que quien chocó fue el Jugador
-	if body.name == "JugadorMenu":
-		mostrar_victoria()
+#endregion

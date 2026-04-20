@@ -11,9 +11,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_laajb"]
 shader = ExtResource("2_kn73h")
 
-[node name="World" type="Node2D" unique_id=989375550]
+[node name="World" type="Node2D" unique_id=989375550 node_paths=PackedStringArray("player", "menu")]
 y_sort_enabled = true
 script = ExtResource("1_kn73h")
+player = NodePath("player")
+menu = NodePath("CanvasLayer/JuegoMenu")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=235019019]
 zoom = Vector2(1.58, 1.58)
