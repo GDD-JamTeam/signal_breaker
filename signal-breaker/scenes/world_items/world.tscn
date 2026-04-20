@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bp4wqu83usrny" path="res://scenes/ui/in_game_ui/barra_vida/barra_vida.tscn" id="6_nt7ja"]
 [ext_resource type="PackedScene" uid="uid://w3cccguhqyyp" path="res://scenes/ui/menus/juego_menu.tscn" id="6_rq8nl"]
 [ext_resource type="PackedScene" uid="uid://c20o36e5gu7l" path="res://scenes/ui/in_game_ui/contador_hits/contador_hits.tscn" id="7_0yxb7"]
+[ext_resource type="PackedScene" uid="uid://dyjohf4c8ubrj" path="res://scenes/world_items/mapa.tscn" id="8_rq8nl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_laajb"]
 shader = ExtResource("2_kn73h")
@@ -18,7 +19,11 @@ player = NodePath("player")
 menu = NodePath("CanvasLayer/JuegoMenu")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=235019019]
-zoom = Vector2(1.58, 1.58)
+zoom = Vector2(2.26, 2.26)
+limit_left = -463
+limit_top = -178
+limit_right = 882
+limit_bottom = 143
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
@@ -44,3 +49,5 @@ parent_node = NodePath("../enemies")
 selected_index = 1
 
 [node name="enemies" type="Node2D" parent="." unique_id=2014819309]
+
+[node name="TileMapLayer" parent="." unique_id=270280112 instance=ExtResource("8_rq8nl")]
