@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://dmq5tuy0dq2gr"]
+[gd_scene format=3 uid="uid://w3cccguhqyyp"]
 
 [ext_resource type="Texture2D" uid="uid://cw7oetru5dx5e" path="res://scenes/ui/menus/autobot.png" id="1_ho7s1"]
 [ext_resource type="Script" uid="uid://beohv7kv7bicy" path="res://scripts/juego_menu.gd" id="1_hsl5g"]
-[ext_resource type="Script" uid="uid://stoisyle4t15" path="res://scripts/jugador_menu.gd" id="2_f5tlo"]
+[ext_resource type="Script" path="res://scripts/jugador_menu.gd" id="2_f5tlo"]
 [ext_resource type="Texture2D" uid="uid://cibou87vgajw2" path="res://scenes/ui/menus/decepticon.png" id="2_l7f6w"]
 [ext_resource type="Texture2D" uid="uid://3577t2sbr5gc" path="res://scenes/ui/menus/terrorcon.png" id="3_l7f6w"]
 

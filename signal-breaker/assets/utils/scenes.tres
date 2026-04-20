@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bhjodpo5nwshc" path="res://autoload/resources/scenes.gd" id="1_4shio"]
 [ext_resource type="PackedScene" uid="uid://d7v0g5f5ntju" path="res://scenes/world_items/world.tscn" id="1_ypjb0"]
+[ext_resource type="PackedScene" uid="uid://8nnuave7jw8m" path="res://scenes/ui/menus/menu_inicio.tscn" id="2_aeunh"]
 
 [resource]
 script = ExtResource("1_4shio")
 items = Dictionary[String, Variant]({
-"battle": ExtResource("1_ypjb0")
+"battle": ExtResource("1_ypjb0"),
+"start_menu": ExtResource("2_aeunh")
 })
