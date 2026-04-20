@@ -13,7 +13,7 @@ config_version=5
 config/name="signal_breaker"
 run/main_scene="uid://db8jjjr23j24q"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://62764tyine84"
 
 [autoload]
 
