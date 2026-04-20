@@ -8,9 +8,8 @@ signal die_signal()
 
 ## Frames a los que se ataca, como rangos
 var attack_frames = [
-	[2, 3], # attack_1
-	[4, 6], # attack_2
-	[6, 9], # attack_3
+	[1, 2], # attack_1
+	[3, 3], # attack_2
 ]
 
 
