@@ -81,6 +81,7 @@ attack_frames = Array[int]([1, 2])
 hurtbox_damage = 40.0
 speed = 80
 knockback_force = 100.0
+knockback_duration = 1.0
 rest_duration = 1.0
 
 [node name="sprites" parent="." index="0" unique_id=1045706891]
