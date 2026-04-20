@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://cgxqk0tstvor8"]
+
+[ext_resource type="PackedScene" uid="uid://vv368qukv2px" path="res://scenes/enemies/base_enemy.tscn" id="1_sdplx"]
+[ext_resource type="Texture2D" uid="uid://dc5hh32euv2he" path="res://assets/sprites/tombo/tombo_attack_0001.png" id="2_7mtt1"]
+[ext_resource type="Script" uid="uid://1yobgifpwkdl" path="res://scripts/base_enemy/tombo/tombo.gd" id="2_7yooj"]
+[ext_resource type="PackedScene" uid="uid://b10tg3vj6ocnc" path="res://scenes/enemies/tombo/ticket.tscn" id="3_ao7g1"]
+[ext_resource type="Texture2D" uid="uid://dmeom7v2f081x" path="res://assets/sprites/tombo/tombo_attack_0002.png" id="3_y1kch"]
+[ext_resource type="Texture2D" uid="uid://bahuhqui3bhtx" path="res://assets/sprites/tombo/tombo_attack_0003.png" id="4_7yooj"]
+[ext_resource type="Texture2D" uid="uid://c7ofuxcu3xvlo" path="res://assets/sprites/tombo/tombo_attack_0004.png" id="5_ao7g1"]
+[ext_resource type="Texture2D" uid="uid://h17rpse3kcer" path="res://assets/sprites/tombo/tombo_attack_0005.png" id="6_y1wls"]
+[ext_resource type="Texture2D" uid="uid://dbw0oyg8wrsjs" path="res://assets/sprites/tombo/tombo_attack_0006.png" id="7_6evcb"]
+[ext_resource type="Texture2D" uid="uid://b3ft7efuyoj6w" path="res://assets/sprites/tombo/tombo_hurt_0001.png" id="8_k73x7"]
+[ext_resource type="Texture2D" uid="uid://ce3xh456vft2f" path="res://assets/sprites/tombo/tombo_idle_0001.png" id="9_gibix"]
+[ext_resource type="Texture2D" uid="uid://cct4dcqo7fc51" path="res://assets/sprites/tombo/tombo_idle_0002.png" id="10_n17mr"]
+[ext_resource type="Texture2D" uid="uid://0sctqcx3f3ct" path="res://assets/sprites/tombo/tombo_idle_0003.png" id="11_0kj5s"]
+[ext_resource type="Texture2D" uid="uid://tab003rrbwwo" path="res://assets/sprites/tombo/tombo_idle_0004.png" id="12_h5p5t"]
+[ext_resource type="Texture2D" uid="uid://dfrby0q8q2456" path="res://assets/sprites/tombo/tombo_moving_0001.png" id="13_uyjun"]
+[ext_resource type="Texture2D" uid="uid://cuq1td7uqvnxc" path="res://assets/sprites/tombo/tombo_moving_0002.png" id="14_rldp7"]
+[ext_resource type="Texture2D" uid="uid://cp5mlif5ofvdn" path="res://assets/sprites/tombo/tombo_moving_0003.png" id="15_ctpr1"]
+[ext_resource type="Texture2D" uid="uid://ca617r6nrmw88" path="res://assets/sprites/tombo/tombo_moving_0004.png" id="16_orpwh"]
+[ext_resource type="Script" uid="uid://dtco8b2w5t23e" path="res://scripts/base_enemy/tombo/states/attack.gd" id="18_ao7g1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikuli"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7mtt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y1kch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7yooj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ao7g1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y1wls")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6evcb")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_k73x7")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("9_gibix")
+}, {
+"duration": 0.5,
+"texture": ExtResource("10_n17mr")
+}, {
+"duration": 0.5,
+"texture": ExtResource("11_0kj5s")
+}, {
+"duration": 0.5,
+"texture": ExtResource("12_h5p5t")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("13_uyjun")
+}, {
+"duration": 0.5,
+"texture": ExtResource("14_rldp7")
+}, {
+"duration": 0.5,
+"texture": ExtResource("15_ctpr1")
+}, {
+"duration": 0.5,
+"texture": ExtResource("16_orpwh")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0328"]
+radius = 14.0
+height = 31.999998
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gegn"]
+height = 248.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pp1gr"]
+height = 48.0
+
+[node name="base_enemy" unique_id=1123628860 node_paths=PackedStringArray("fire_node") instance=ExtResource("1_sdplx")]
+script = ExtResource("2_7yooj")
+fire_node = NodePath("Attacks/fire_node")
+ticket = ExtResource("3_ao7g1")
+projectile_count = 3
+spread_angle = 45.0
+ticket_damage = 20.0
+attack_frames = Array[int]([2, 5])
+hurtbox_damage = 30.0
+speed = 60
+charge_duration = 1.0
+rest_duration = 1.0
+
+[node name="sprites" parent="." index="0" unique_id=1045706891]
+instance_shader_parameters/direction = Vector2(0, -0.2)
+instance_shader_parameters/seed = 0.5
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_ikuli")
+animation = &"attack"
+frame = 3
+
+[node name="CollisionShape2D" parent="Attacks/hurt_box" parent_id_path=PackedInt32Array(56407681) index="0" unique_id=1386769232]
+position = Vector2(-19, 0)
+shape = SubResource("CapsuleShape2D_i0328")
+
+[node name="fire_node" type="Node2D" parent="Attacks" parent_id_path=PackedInt32Array(1411341608) index="1" unique_id=614811769]
+position = Vector2(-26, 0)
+
+[node name="attack_range_shape" parent="Attacks/attack_range_area" parent_id_path=PackedInt32Array(86357474) index="0" unique_id=790022693]
+position = Vector2(-124, 0)
+shape = SubResource("CapsuleShape2D_7gegn")
+
+[node name="hurtbox_son" parent="hurtbox_area" parent_id_path=PackedInt32Array(564897120) index="0" unique_id=1647890027]
+shape = SubResource("CapsuleShape2D_pp1gr")
+
+[node name="Attack" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="3" unique_id=2033860285]
+script = ExtResource("18_ao7g1")

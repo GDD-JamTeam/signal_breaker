@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b10tg3vj6ocnc"]
+
+[ext_resource type="Texture2D" uid="uid://dq845473ta53" path="res://assets/sprites/tombo/ticket/istockphoto-2237366790-1024x1024.jpg" id="1_6th4b"]
+[ext_resource type="Script" uid="uid://ditix6d8bya0a" path="res://scripts/base_enemy/tombo/ticket/ticket.gd" id="1_xh3b7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xh3b7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6th4b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7okh1"]
+
+[node name="ticket" type="Area2D" unique_id=172276598]
+script = ExtResource("1_xh3b7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=940745239]
+position = Vector2(0, 1)
+scale = Vector2(0.032812502, 0.029882811)
+sprite_frames = SubResource("SpriteFrames_xh3b7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=917686930]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7okh1")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

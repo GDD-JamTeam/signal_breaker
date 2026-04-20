@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Scenes" format=3 uid="uid://c4806qkmpxdvn"]
+
+[ext_resource type="Script" uid="uid://bhjodpo5nwshc" path="res://autoload/resources/scenes.gd" id="1_4shio"]
+[ext_resource type="PackedScene" uid="uid://d7v0g5f5ntju" path="res://scenes/world_items/world.tscn" id="1_ypjb0"]
+
+[resource]
+script = ExtResource("1_4shio")
+items = Dictionary[String, Variant]({
+"battle": ExtResource("1_ypjb0")
+})
