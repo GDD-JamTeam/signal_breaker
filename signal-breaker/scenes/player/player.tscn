@@ -448,7 +448,9 @@ animation = &"idle"
 [node name="hit_box" parent="." index="1" unique_id=515622228]
 shape = SubResource("CapsuleShape2D_lvxji")
 
-[node name="attack_1" type="Area2D" parent="Attacks" parent_id_path=PackedInt32Array(1411341608) index="0" unique_id=768908441]
+[node name="Attacks" parent="." index="2" unique_id=1411341608 groups=["hitbox", "player"]]
+
+[node name="attack_1" type="Area2D" parent="Attacks" index="0" unique_id=768908441]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/attack_1" index="0" unique_id=1593471639]
 position = Vector2(25, -12)
@@ -456,7 +458,7 @@ rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_qek5x")
 debug_color = Color(1, 0, 0, 0.3529412)
 
-[node name="attack_2" type="Area2D" parent="Attacks" parent_id_path=PackedInt32Array(1411341608) index="1" unique_id=2032813768]
+[node name="attack_2" type="Area2D" parent="Attacks" index="1" unique_id=2032813768]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/attack_2" index="0" unique_id=1024516025]
 position = Vector2(37, -4)
@@ -464,7 +466,7 @@ rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_5gtgg")
 debug_color = Color(0, 0.5882353, 0, 0.41960785)
 
-[node name="attack_3" type="Area2D" parent="Attacks" parent_id_path=PackedInt32Array(1411341608) index="2" unique_id=1294742507]
+[node name="attack_3" type="Area2D" parent="Attacks" index="2" unique_id=1294742507]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/attack_3" index="0" unique_id=1641109066]
 position = Vector2(38, -1)

@@ -25,7 +25,11 @@ func _on_area_entered(area: Area2D) -> void:
 
 	match info.area_type:
 		# Hitbox: omite
-		&"hitbox": pass
+		&"hitbox":
+			direction *= -1
+			var target: BaseEntity = info.target.get_parent()
+			entity_owner = target
+			return
 		# Hurtbox: aplica daño si es un rival válido y se va
 		&"hurtbox":
 			var target: BaseEntity = info.target
@@ -46,8 +50,8 @@ func target_info(area: Area2D) -> Dictionary:
 	if not &"player" in groups and not &"enemy" in groups: return {}
 	if &"player" in groups and &"enemy" in groups: return {}
 
-	print("[Ticket] Target node %s in groups %s" % [info.target, groups])
-
 	info.area_type = &"hitbox" if &"hitbox" in groups else &"hurtbox"
+
+	print("[Ticket] Target node %s in groups %s area type %s" % [info.target, groups, info.area_type])
 
 	return info
