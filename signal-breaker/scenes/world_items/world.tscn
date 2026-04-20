@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bp4wqu83usrny" path="res://scenes/ui/in_game_ui/barra_vida/barra_vida.tscn" id="6_nt7ja"]
 [ext_resource type="PackedScene" uid="uid://w3cccguhqyyp" path="res://scenes/ui/menus/juego_menu.tscn" id="6_rq8nl"]
 [ext_resource type="PackedScene" uid="uid://c20o36e5gu7l" path="res://scenes/ui/in_game_ui/contador_hits/contador_hits.tscn" id="7_0yxb7"]
+[ext_resource type="Script" uid="uid://31fsxdrpp7lp" path="res://scripts/System/Resources/Data.gd" id="8_rq8nl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_laajb"]
 shader = ExtResource("2_kn73h")
@@ -44,3 +45,6 @@ parent_node = NodePath("../enemies")
 selected_index = 1
 
 [node name="enemies" type="Node2D" parent="." unique_id=2014819309]
+
+[node name="SaveandLoad" type="Node2D" parent="." unique_id=1779634606]
+script = ExtResource("8_rq8nl")
