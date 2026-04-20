@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq845473ta53"
-path="res://.godot/imported/istockphoto-2237366790-1024x1024.jpg-a8dd16713c71a00de24c1967c3158021.ctex"
+uid="uid://r0erj7dopmx5"
+path="res://.godot/imported/tombo_proyectile_0001.png-11e3813823b1f7dcbe4768963c965636.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tombo/ticket/istockphoto-2237366790-1024x1024.jpg"
-dest_files=["res://.godot/imported/istockphoto-2237366790-1024x1024.jpg-a8dd16713c71a00de24c1967c3158021.ctex"]
+source_file="res://assets/sprites/tombo/ticket/tombo_proyectile_0001.png"
+dest_files=["res://.godot/imported/tombo_proyectile_0001.png-11e3813823b1f7dcbe4768963c965636.ctex"]
 
 [params]
 
