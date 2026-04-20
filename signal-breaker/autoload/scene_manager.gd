@@ -2,7 +2,7 @@ extends Node
 
 
 ## Lista de escenas disponibles
-var _scenes: Scenes
+var _scenes: Scenes = preload("res://assets/utils/scenes.tres")
 
 
 # Revisa al inicio las escenas para que estén bien definidas

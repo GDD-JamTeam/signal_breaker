@@ -2,7 +2,7 @@ extends AudioStreamPlayer
 
 
 ## Lista de canciones disponibles
-var _playlist: Playlist
+var _playlist: Playlist = preload("res://assets/music/playlist.tres")
 
 
 # Revisa al inicio que toda la playlist esté bien definida

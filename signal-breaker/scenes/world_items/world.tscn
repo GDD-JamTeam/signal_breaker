@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d7v0g5f5ntju"]
 
 [ext_resource type="PackedScene" uid="uid://b2vcrjhp5s1k6" path="res://scenes/player/player.tscn" id="1_jsh2e"]
+[ext_resource type="Script" uid="uid://c2w2o1vy3jxqp" path="res://scripts/world.gd" id="1_kn73h"]
 [ext_resource type="PackedScene" uid="uid://b6m3qkjn5jamg" path="res://scenes/enemies/scholar/scholar.tscn" id="2_iow0t"]
 [ext_resource type="Shader" uid="uid://c1o6f35k4b6a5" path="res://assets/shaders/dust_disolve.gdshader" id="2_kn73h"]
 [ext_resource type="PackedScene" uid="uid://cgxqk0tstvor8" path="res://scenes/enemies/tombo/tombo.tscn" id="4_rvtnc"]
@@ -12,6 +13,7 @@ shader = ExtResource("2_kn73h")
 
 [node name="World" type="Node2D" unique_id=989375550]
 y_sort_enabled = true
+script = ExtResource("1_kn73h")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=235019019]
 zoom = Vector2(1.58, 1.58)
