@@ -46,7 +46,7 @@ func animacion_pop() -> void:
 	
 	# Efecto de mayor impacto cada 10 golpes
 	if hits % 10 == 0:
-		scale_factor*=1.3
+		scale_factor*=1.2
 	
 	tween_pop.parallel().tween_property(self, "scale", Vector2.ONE*scale_factor, 0.1).set_trans(Tween.TRANS_EXPO)
 	tween_pop.parallel().tween_property(self, "rotation", tilt, 0.1)
