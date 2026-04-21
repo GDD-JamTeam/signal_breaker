@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bdc5rtheodl33"]
+
+[ext_resource type="FontFile" uid="uid://dkkyfaq2ocyni" path="res://assets/fonts/StencilStd.otf" id="1_170e3"]
+
+[resource]
+font = ExtResource("1_170e3")
+font_size = 54

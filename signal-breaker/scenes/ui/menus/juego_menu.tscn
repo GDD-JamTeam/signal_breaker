@@ -2,9 +2,20 @@
 
 [ext_resource type="Script" uid="uid://beohv7kv7bicy" path="res://scripts/juego_menu.gd" id="1_hsl5g"]
 [ext_resource type="Shader" uid="uid://chkm6yue5ptxp" path="res://assets/shaders/blur.gdshader" id="2_ho7s1"]
+[ext_resource type="FontFile" uid="uid://dkkyfaq2ocyni" path="res://assets/fonts/StencilStd.otf" id="3_f5tlo"]
+[ext_resource type="LabelSettings" uid="uid://bdc5rtheodl33" path="res://assets/utils/label_settings_2.tres" id="4_dhcye"]
+[ext_resource type="Theme" uid="uid://bmlkh5w8istl1" path="res://assets/utils/theme.tres" id="4_hsl5g"]
+[ext_resource type="Texture2D" uid="uid://4ymacemk8l2o" path="res://assets/ui/game_over/SB_gameover.png" id="6_maxnx"]
+[ext_resource type="Texture2D" uid="uid://18h8u0dgybke" path="res://assets/ui/game_over/SB_gameover1.png" id="7_d15sm"]
+[ext_resource type="Texture2D" uid="uid://b0itw5w8gyk6f" path="res://assets/ui/game_over/SB_gameover2.png" id="8_8f55b"]
+[ext_resource type="Texture2D" uid="uid://bea4jkclmikuj" path="res://assets/ui/game_over/SB_gameover3.png" id="9_v4ny5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l7f6w"]
 shader = ExtResource("2_ho7s1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_maxnx"]
+font = ExtResource("3_f5tlo")
+font_size = 40
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ho7s1"]
 shader = ExtResource("2_ho7s1")
@@ -21,6 +32,7 @@ script = ExtResource("1_hsl5g")
 
 [node name="Pausa" type="ColorRect" parent="." unique_id=1550308894]
 unique_name_in_owner = true
+visible = false
 material = SubResource("ShaderMaterial_l7f6w")
 instance_shader_parameters/blur_amount = 2.0
 instance_shader_parameters/tint_color = Color(0, 0, 0, 0.5)
@@ -39,13 +51,15 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 39.0
-offset_top = -89.0
-offset_right = 423.0
+offset_top = -131.0
+offset_right = 595.0
 offset_bottom = -36.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 38
 text = "Pulsa Esc para volver"
+label_settings = SubResource("LabelSettings_maxnx")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Victoria" type="ColorRect" parent="." unique_id=825356464]
 unique_name_in_owner = true
@@ -80,7 +94,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 38
 text = "Victoria"
+label_settings = ExtResource("4_dhcye")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="Victoria/Contents" unique_id=52175555]
 layout_mode = 2
@@ -88,67 +104,76 @@ theme_override_constants/separation = 13
 alignment = 1
 
 [node name="Reiniciar" type="Button" parent="Victoria/Contents/Buttons" unique_id=441285311]
+custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
+theme = ExtResource("4_hsl5g")
 theme_override_font_sizes/font_size = 28
 text = "Volver a Jugar"
 
 [node name="Menu" type="Button" parent="Victoria/Contents/Buttons" unique_id=1297840549]
+custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
+theme = ExtResource("4_hsl5g")
 theme_override_font_sizes/font_size = 28
 text = "Volver al Menu"
 
-[node name="Muerte" type="ColorRect" parent="." unique_id=1634006530]
+[node name="Muerte" type="TextureRect" parent="." unique_id=1077091524]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.6156863)
+texture = ExtResource("6_maxnx")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="Label" type="Label" parent="Muerte" unique_id=1619092086]
+[node name="Content" type="HBoxContainer" parent="Muerte" unique_id=1637753109]
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -97.5
-offset_top = 113.0
-offset_right = 97.5
-offset_bottom = 163.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
-text = "Game Over"
+grow_vertical = 0
+theme_override_constants/separation = 671
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Muerte" unique_id=603821975]
+[node name="Menu" type="TextureButton" parent="Muerte/Content" unique_id=796239282]
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 2
+texture_normal = ExtResource("9_v4ny5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Reiniciar" type="TextureButton" parent="Muerte/Content" unique_id=1965011838]
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 2
+texture_normal = ExtResource("8_8f55b")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Logo" type="TextureRect" parent="Muerte" unique_id=511125153]
+custom_minimum_size = Vector2(700, 500)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -147.0
-offset_top = -83.0
-offset_right = 148.0
-offset_bottom = 84.0
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 17
-alignment = 1
-
-[node name="Reiniciar" type="Button" parent="Muerte/VBoxContainer" unique_id=1302559574]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Reiniciar"
-
-[node name="Menu" type="Button" parent="Muerte/VBoxContainer" unique_id=1072884255]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Volver al Menu"
+texture = ExtResource("7_d15sm")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="pressed" from="Victoria/Contents/Buttons/Reiniciar" to="." method="_on_reiniciar_pressed"]
 [connection signal="pressed" from="Victoria/Contents/Buttons/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="Muerte/VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
-[connection signal="pressed" from="Muerte/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Muerte/Content/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Muerte/Content/Reiniciar" to="." method="_on_reiniciar_pressed"]

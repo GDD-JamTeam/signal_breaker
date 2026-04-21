@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://bmlkh5w8istl1"]
+
+[ext_resource type="FontFile" uid="uid://dkkyfaq2ocyni" path="res://assets/fonts/StencilStd.otf" id="1_fasjo"]
+
+[resource]
+default_font = ExtResource("1_fasjo")
