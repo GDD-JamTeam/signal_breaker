@@ -1,0 +1,29 @@
+[gd_resource type="AnimatedTexture" format=3 uid="uid://bcnh3mm84wx6y"]
+
+[ext_resource type="Texture2D" uid="uid://ba83nfy8hhtre" path="res://assets/ui/intro/SB_intro19.png" id="3_oest2"]
+[ext_resource type="Texture2D" uid="uid://bqfkkkj1k4vpq" path="res://assets/ui/intro/SB_intro12.png" id="5_jq0pu"]
+[ext_resource type="Texture2D" uid="uid://cho0xr6tkhoim" path="res://assets/ui/intro/SB_intro13.png" id="6_jhg1x"]
+[ext_resource type="Texture2D" uid="uid://bcoa7dtvwfg0x" path="res://assets/ui/intro/SB_intro14.png" id="7_naube"]
+[ext_resource type="Texture2D" uid="uid://dhap1fa6h5d5j" path="res://assets/ui/intro/SB_intro15.png" id="8_1oggl"]
+[ext_resource type="Texture2D" uid="uid://chjuyntumc1h3" path="res://assets/ui/intro/SB_intro16.png" id="9_sed6v"]
+[ext_resource type="Texture2D" uid="uid://58ycg2ib40e1" path="res://assets/ui/intro/SB_intro17.png" id="10_gqmqb"]
+[ext_resource type="Texture2D" uid="uid://uqfy0damjkdy" path="res://assets/ui/intro/SB_intro18.png" id="11_8mtm0"]
+
+[resource]
+frames = 8
+frame_0/texture = ExtResource("5_jq0pu")
+frame_0/duration = 0.14
+frame_1/texture = ExtResource("6_jhg1x")
+frame_1/duration = 0.14
+frame_2/texture = ExtResource("7_naube")
+frame_2/duration = 0.14
+frame_3/texture = ExtResource("8_1oggl")
+frame_3/duration = 0.14
+frame_4/texture = ExtResource("9_sed6v")
+frame_4/duration = 0.14
+frame_5/texture = ExtResource("10_gqmqb")
+frame_5/duration = 0.14
+frame_6/texture = ExtResource("11_8mtm0")
+frame_6/duration = 0.14
+frame_7/texture = ExtResource("3_oest2")
+frame_7/duration = 0.14
