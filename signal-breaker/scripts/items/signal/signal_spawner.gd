@@ -34,6 +34,7 @@ func _ready() -> void:
 	
 	# radio
 	if collision_shape.shape is CircleShape2D:
+		collision_shape.shape = collision_shape.shape.duplicate()
 		collision_shape.shape.radius = radius
 	
 	# escala inicial
