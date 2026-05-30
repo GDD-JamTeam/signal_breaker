@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c20o36e5gu7l" path="res://scenes/ui/in_game_ui/contador_hits/contador_hits.tscn" id="7_0yxb7"]
 [ext_resource type="PackedScene" path="res://scenes/world_items/mapa.tscn" id="8_rq8nl"]
 [ext_resource type="Script" path="res://scenes/world_items/victory_area.gd" id="10_j18iy"]
+[ext_resource type="TileSet" uid="uid://b1jjek77m1os8" path="res://assets/tilemaps/map_tileset.tres" id="11_q163x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_laajb"]
 shader = ExtResource("2_kn73h")
@@ -43,13 +44,17 @@ layout_mode = 1
 [node name="Menu" parent="CanvasLayer/UI" unique_id=1763632846 instance=ExtResource("6_rq8nl")]
 layout_mode = 1
 
-[node name="Background" type="Sprite2D" parent="." unique_id=844519999]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=772465010]
+scale = Vector2(0.12, 0.12)
+tile_set = ExtResource("11_q163x")
+
+[node name="Map" parent="." unique_id=270280112 instance=ExtResource("8_rq8nl")]
+
+[node name="Background" type="Sprite2D" parent="Map" unique_id=844519999]
 z_index = -2
 position = Vector2(574.75, -105.79)
 scale = Vector2(3.567709, 2.99475)
 texture = ExtResource("2_kuyq6")
-
-[node name="World" parent="." unique_id=270280112 instance=ExtResource("8_rq8nl")]
 
 [node name="Signals" type="Node2D" parent="." unique_id=635063365]
 
