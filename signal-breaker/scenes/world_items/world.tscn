@@ -43,8 +43,6 @@ layout_mode = 1
 [node name="Menu" parent="CanvasLayer/UI" unique_id=1763632846 instance=ExtResource("6_rq8nl")]
 layout_mode = 1
 
-[node name="SaveAndLoad" type="Node" parent="." unique_id=1765497290]
-
 [node name="Background" type="Sprite2D" parent="." unique_id=844519999]
 z_index = -2
 position = Vector2(574.75, -105.79)
@@ -79,7 +77,13 @@ instance_shader_parameters/direction = Vector2(0, -1)
 instance_shader_parameters/mask_vignette_center = Vector2(1.86, 0.3)
 position = Vector2(-448, 81)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=235019019]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1087024491]
+remote_path = NodePath("../../Camera2D")
+update_rotation = false
+update_scale = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=235019019]
+position = Vector2(-448, 81)
 zoom = Vector2(2.26, 2.26)
 limit_left = -463
 limit_top = -178
