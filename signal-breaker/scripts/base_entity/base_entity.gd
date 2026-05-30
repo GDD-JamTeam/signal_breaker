@@ -1,6 +1,8 @@
 class_name BaseEntity extends CharacterBody2D
 
 
+
+@export var name_entity: String
 ## Salud
 @export var health: int = 100
 ## Velocidad de caminata
@@ -18,6 +20,7 @@ class_name BaseEntity extends CharacterBody2D
 @onready var animation_sprite: AnimatedSprite2D = $sprites
 @onready var hitbox_node: CollisionShape2D = $hit_box
 @onready var hitboxes_node: Node2D = $Attacks
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer
 
 ## Índice de la animación de ataque
 var attack_index: int = 0
@@ -121,6 +124,21 @@ func apply_damage(area: Area2D, damage: int) -> void:
 	if target.has_method("get_hurt"):
 		target.get_hurt(damage, global_position)
 		hit_targets.append(target)
+		
+#region Método de audio
+
+func play_sound_by_key(sound_key: String) -> void:
+	if sound_key.is_empty():
+		return
+	
+	var complete_sound_key: String = name_entity + "_" + sound_key
+	
+	# Le pedimos el archivo de audio al manager global
+	var stream = EntitiesSounds.get_sound(complete_sound_key)
+	
+	if stream and audio_player:
+		audio_player.stream = stream
+		audio_player.play()
 
 #region Métodos vacíos (para implementar)
 
