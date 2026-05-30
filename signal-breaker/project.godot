@@ -20,6 +20,7 @@ config/icon="uid://62764tyine84"
 
 MusicManager="*uid://bmyo0wykadt4t"
 SceneManager="*uid://bgtg5swvnyfee"
+EntitiesSounds="*uid://crxqs1mkpksqs"
 
 [display]
 
