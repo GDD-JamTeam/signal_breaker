@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://w3cccguhqyyp"]
 
 [ext_resource type="Script" uid="uid://beohv7kv7bicy" path="res://scripts/juego_menu.gd" id="1_hsl5g"]
-[ext_resource type="Shader" uid="uid://chkm6yue5ptxp" path="res://assets/shaders/blur.gdshader" id="2_ho7s1"]
+[ext_resource type="Shader" path="res://assets/shaders/blur.gdshader" id="2_ho7s1"]
 [ext_resource type="FontFile" uid="uid://dkkyfaq2ocyni" path="res://assets/fonts/StencilStd.otf" id="3_f5tlo"]
 [ext_resource type="Texture2D" uid="uid://navhpbxadesr" path="res://assets/ui/victory/BREAKER OK.png" id="4_8f55b"]
 [ext_resource type="Theme" uid="uid://bmlkh5w8istl1" path="res://assets/utils/buttons_theme.tres" id="4_hsl5g"]
@@ -20,7 +20,7 @@ font_size = 40
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ho7s1"]
 shader = ExtResource("2_ho7s1")
 
-[node name="JuegoMenu" type="Control" unique_id=764385593]
+[node name="Menu" type="Control" unique_id=764385593]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
