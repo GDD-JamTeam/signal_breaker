@@ -80,3 +80,5 @@ script = ExtResource("6_ivjlm")
 
 [node name="Rest" type="Node" parent="StateMachine" unique_id=338252094]
 script = ExtResource("7_pcqhv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1570222519]

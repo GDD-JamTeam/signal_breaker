@@ -20,7 +20,7 @@ class_name BaseEntity extends CharacterBody2D
 @onready var animation_sprite: AnimatedSprite2D = $sprites
 @onready var hitbox_node: CollisionShape2D = $hit_box
 @onready var hitboxes_node: Node2D = $Attacks
-@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 ## Índice de la animación de ataque
 var attack_index: int = 0
