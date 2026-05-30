@@ -23,6 +23,7 @@ func physics_update(_delta: float) -> void:
 func exit() -> void:
 	base_entity.disable_hitboxes()
 	base_entity.hitbox_active = false
+	base_entity.stop_sound()
 
 func get_attack_animation() -> String:
 	return "attack"
@@ -40,6 +41,8 @@ func update_attack_hitbox() -> void:
 		if not base_entity.hitbox_active:
 			base_entity.enable_hitbox(base_entity.attack_index)
 			base_entity.hitbox_active = true
+			
+			base_entity.play_sound_by_key(get_attack_animation())
 	else:
 		if base_entity.hitbox_active:
 			base_entity.disable_hitboxes()

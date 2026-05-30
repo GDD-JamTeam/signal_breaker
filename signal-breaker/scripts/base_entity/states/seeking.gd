@@ -4,7 +4,10 @@ class_name EntitySeeking extends EntityState
 func start() -> void:
 	await base_entity.ready
 	base_entity.animation_sprite.play(&"idle")
-
+	base_entity.play_sound_by_key("walk")
+	
+func exit() -> void:
+	base_entity.stop_sound()
 
 func physics_update(_delta: float) -> void:
 	update_animation()

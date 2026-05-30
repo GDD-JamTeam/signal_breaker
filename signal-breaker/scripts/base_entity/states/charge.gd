@@ -6,6 +6,7 @@ var timer: Timer
 
 func start() -> void:
 	base_entity.animation_sprite.play(&"idle")
+	base_entity.play_sound_by_key("charge")
 
 	# Crear timer controlado
 	timer = Timer.new()
@@ -19,6 +20,7 @@ func start() -> void:
 
 
 func exit() -> void:
+	base_entity.stop_sound()
 	if timer:
 		timer.stop()
 		timer.queue_free()
