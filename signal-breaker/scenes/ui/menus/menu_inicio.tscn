@@ -1,6 +1,8 @@
-[gd_scene format=3 uid="uid://8nnuave7jw8m"]
+[gd_scene format=3 uid="uid://db8jjjr23j24q"]
 
 [ext_resource type="Script" uid="uid://vdpt6uuugdpo" path="res://scripts/menu_inicio.gd" id="1_q6rs0"]
+[ext_resource type="Texture2D" uid="uid://bcnh3mm84wx6y" path="res://assets/ui/intro/loop_bg_anim.tres" id="4_c2rvd"]
+[ext_resource type="Texture2D" uid="uid://d5sao2gm86ri" path="res://assets/ui/intro/animated_bg.tres" id="22_g6cqk"]
 
 [node name="MenuInicio" type="Control" unique_id=44001971]
 layout_mode = 3
@@ -10,40 +12,49 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q6rs0")
+loop_anim = ExtResource("4_c2rvd")
+metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1694450248]
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=1737161699]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.5
+offset_top = -300.0
+offset_right = 116.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 225
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Quit" type="Button" parent="Buttons" unique_id=252018804]
+custom_minimum_size = Vector2(100, 300)
+layout_mode = 2
+
+[node name="Play" type="Button" parent="Buttons" unique_id=1661392284]
+custom_minimum_size = Vector2(100, 300)
+layout_mode = 2
+
+[node name="Options" type="Button" parent="Buttons" unique_id=2131516629]
+custom_minimum_size = Vector2(100, 300)
+layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=1232245549]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.36659443, 0.36659467, 0.36659443, 1)
+mouse_filter = 2
+texture = ExtResource("22_g6cqk")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1719721325]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -246.0
-offset_top = -104.75
-offset_right = 246.0
-offset_bottom = 104.75
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 40
-
-[node name="Play" type="Button" parent="VBoxContainer" unique_id=343476734]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Jugar"
-
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1654465299]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Salir"
-
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]

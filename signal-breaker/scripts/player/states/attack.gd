@@ -25,7 +25,6 @@ func physics_update(_delta: float) -> void:
 func get_attack_animation() -> String:
 	if Input.is_action_just_pressed("attack_1"): base_entity.attack_index = 0
 	elif Input.is_action_just_pressed("attack_2"): base_entity.attack_index = 1
-	elif Input.is_action_just_pressed("attack_3"): base_entity.attack_index = 2
 	else: return "idle"
 
 	return "attack_%s" % (base_entity.attack_index + 1)

@@ -2,7 +2,7 @@ class_name JuegoMenu extends Control
 
 
 @onready var menu_pausa: ColorRect = %Pausa
-@onready var menu_muerte: ColorRect = %Muerte
+@onready var menu_muerte: TextureRect = %Muerte
 @onready var menu_victoria: ColorRect = %Victoria
 
 

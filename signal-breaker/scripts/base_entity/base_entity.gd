@@ -60,7 +60,7 @@ func move_to(pos: Vector2) -> void:
 ## Actualiza la velocidad según la dirección que se le diga
 func update_velocity(dir: Vector2) -> void:
 	if not is_zero_approx(dir.x):
-		is_looking_right = dir.x < 0
+		is_looking_right = dir.x > 0
 	velocity = dir * speed
 
 
@@ -72,7 +72,7 @@ func get_hurt(damage: int, source_position: Vector2) -> void:
 	health -= damage
 	# Empuja al jugador desde donde se le golpe+o
 	var knockback_dir = (global_position - source_position).normalized()
-	is_looking_right = knockback_dir.x > 0
+	is_looking_right = knockback_dir.x < 0
 
 	damaged.emit(damage, source_position)
 

@@ -1,3 +1,13 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# System specific ignores
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+
+# Builds
+.builds/

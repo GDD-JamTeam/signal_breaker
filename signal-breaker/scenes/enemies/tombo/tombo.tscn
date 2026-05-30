@@ -96,6 +96,7 @@ height = 31.999998
 height = 248.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pp1gr"]
+radius = 15.0
 height = 48.0
 
 [node name="base_enemy" unique_id=1123628860 node_paths=PackedStringArray("fire_node") instance=ExtResource("1_sdplx")]
@@ -131,6 +132,7 @@ position = Vector2(-124, 0)
 shape = SubResource("CapsuleShape2D_7gegn")
 
 [node name="hurtbox_son" parent="hurtbox_area" parent_id_path=PackedInt32Array(564897120) index="0" unique_id=1647890027]
+position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_pp1gr")
 
 [node name="Attack" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="3" unique_id=2033860285]
