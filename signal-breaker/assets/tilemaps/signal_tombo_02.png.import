@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdvm8egjprjox"
-path="res://.godot/imported/BattingGirl_Jump-Sheet.png-e5d03a886a95406f866773a6d2b264ba.ctex"
+uid="uid://ds1ugnqkeb6ei"
+path="res://.godot/imported/signal_tombo_02.png-9b3e50170fd90541f2cce8888565ed13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/support_assets/tilemaps/BattingGirl_Download Free/BattingGirl_Jump-Sheet.png"
-dest_files=["res://.godot/imported/BattingGirl_Jump-Sheet.png-e5d03a886a95406f866773a6d2b264ba.ctex"]
+source_file="res://assets/tilemaps/signal_tombo_02.png"
+dest_files=["res://.godot/imported/signal_tombo_02.png-9b3e50170fd90541f2cce8888565ed13.ctex"]
 
 [params]
 
