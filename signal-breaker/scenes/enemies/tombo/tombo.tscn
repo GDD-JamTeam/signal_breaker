@@ -108,6 +108,7 @@ spread_angle = 45.0
 ticket_damage = 20.0
 attack_frames = Array[int]([2, 5])
 hurtbox_damage = 30.0
+name_entity = "tombo"
 speed = 60
 charge_duration = 1.0
 rest_duration = 1.0

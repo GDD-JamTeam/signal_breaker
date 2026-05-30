@@ -120,6 +120,7 @@ height = 26.0
 script = ExtResource("2_p47bc")
 hitboxes = [NodePath("Attacks/attack_1"), NodePath("Attacks/attack_2")]
 hitboxes_damage = Array[int]([10, 20])
+name_entity = "player"
 
 [node name="sprites" parent="." index="0" unique_id=1045706891]
 instance_shader_parameters/direction = Vector2(-0.01, -0.5)
@@ -162,3 +163,6 @@ script = ExtResource("10_ugbui")
 
 [node name="Attack" parent="StateMachine" parent_id_path=PackedInt32Array(220821788) index="3" unique_id=2033860285]
 script = ExtResource("12_myrg7")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." index="6" unique_id=1940964351]
+current = true

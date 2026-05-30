@@ -83,6 +83,7 @@ height = 42.0
 [node name="scholar" unique_id=1123628860 instance=ExtResource("1_q17wf")]
 attack_frames = Array[int]([0, 10])
 hurtbox_damage = 20.0
+name_entity = "scholar"
 speed = 80
 charge_duration = 1.0
 rest_duration = 1.0
