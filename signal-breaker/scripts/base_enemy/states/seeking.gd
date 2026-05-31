@@ -14,7 +14,7 @@ func start() -> void:
 
 
 func physics_update(_delta: float) -> void:
-	if base_entity.range:
+	if base_entity.on_range:
 		to_state.emit(EntityCharge)
 	elif target != null:
 		var offset_x := 40.0 # distancia lateral deseada

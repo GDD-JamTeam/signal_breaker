@@ -78,7 +78,7 @@ height = 62.0
 
 [node name="worker" unique_id=1123628860 instance=ExtResource("1_qt8i8")]
 attack_frames = Array[int]([1, 2])
-hurtbox_damage = 40.0
+hurtbox_damage = 15.0
 speed = 80
 knockback_force = 100.0
 knockback_duration = 1.0
