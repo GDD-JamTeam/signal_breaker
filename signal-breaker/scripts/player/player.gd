@@ -1,26 +1,28 @@
 class_name Player extends BaseEntity
 
 
+## Emitida cuando el jugador recibe daño
 signal get_hurt_signal()
+## Emitida cuando el jugador da un golpe
 signal hit()
+## Emitida cuando el jugador muere
 signal die_signal()
-
-
-## Frames a los que se ataca, como rangos
-var attack_frames = [
-	[1, 2], # attack_1
-	[3, 3], # attack_2
-]
 
 
 ## Lista de hitboxes
 @export var hitboxes: Array[Area2D]
 ## Lista de daños que hacen las hitboxes, en el mismo orden
 @export var hitboxes_damage: Array[int] = [10, 15, 20]
+## Frames a los que se ataca, como rangos
+@export var attack_frames = [
+	[1, 2], # attack_1
+	[3, 3], # attack_2
+]
 
 
 ## Dirección de entrada
 var input_dir: Vector2
+
 
 func _ready() -> void:
 	# Desactiva los hitboxes
@@ -37,22 +39,25 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 
 	# Actualiza la entrada de teclado
-	input_dir = Input.get_vector("left", "right", "up", "down")
+	input_dir = Input.get_vector(&"left", &"right", &"up", &"down")
+
+
+#region Hit y hitbox
 
 
 ## Activa la hitbox indicada para dar daño
 func enable_hitbox(index: int) -> void:
-	hitboxes[index].set_deferred("monitoring", true)
+	hitboxes[index].set_deferred(&"monitoring", true)
 	hitboxes[index].visible = true
-	hitboxes[index].set_deferred("monitorable", true)
+	hitboxes[index].set_deferred(&"monitorable", true)
 
 
 ## Desactiva las hitbox cuando no se ataca
 func disable_hitboxes() -> void:
 	for hitbox in hitboxes:
-		hitbox.set_deferred("monitoring", false)
+		hitbox.set_deferred(&"monitoring", false)
 		hitbox.visible = false
-		hitbox.set_deferred("monitorable", false)
+		hitbox.set_deferred(&"monitorable", false)
 
 
 ## Obtiene el rango de frames de ataque
@@ -60,8 +65,24 @@ func get_attack_frame_range() -> Array:
 	return attack_frames[attack_index]
 
 
+func apply_damage(area: Area2D, damage: int) -> void:
+	var before := hit_targets.size()
+	super(area, damage)
+	var after := hit_targets.size()
+
+	if after > before:
+		var _target = area.get_parent()
+		hit.emit()
+
+
+#endregion
+
+
 func get_health():
 	return health
+
+
+#region Daño y muerte
 
 
 func get_hurt(damage: int, source_position: Vector2) -> void:
@@ -75,13 +96,4 @@ func die() -> void:
 	super()
 
 
-func apply_damage(area: Area2D, damage: int) -> void:
-	var before := hit_targets.size()
-
-	super(area, damage)
-
-	var after := hit_targets.size()
-
-	if after > before:
-		var _target = area.get_parent()
-		hit.emit()
+#endregion
