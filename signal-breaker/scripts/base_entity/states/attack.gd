@@ -29,7 +29,7 @@ func get_attack_animation() -> String:
 
 func update_attack_hitbox() -> void:
 	var current_frame := base_entity.animation_sprite.frame
-	var attack_range := base_entity.get_attack_frame_range()
+	var attack_range := base_entity.get_current_attack_frame_range()
 
 	if attack_range.size() < 2: return
 

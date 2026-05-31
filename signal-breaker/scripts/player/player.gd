@@ -60,8 +60,8 @@ func disable_hitboxes() -> void:
 		hitbox.set_deferred(&"monitorable", false)
 
 
-## Obtiene el rango de frames de ataque
-func get_attack_frame_range() -> Array:
+## Obtiene el rango de frames de ataque del índice de ataque actual
+func get_current_attack_frame_range() -> Array:
 	return attack_frames[attack_index]
 
 
@@ -76,10 +76,6 @@ func apply_damage(area: Area2D, damage: int) -> void:
 
 
 #endregion
-
-
-func get_health():
-	return health
 
 
 #region Daño y muerte

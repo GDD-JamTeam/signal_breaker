@@ -137,7 +137,7 @@ func disable_hitboxes() -> void:
 
 
 ## Retorna el rango de frames de ataque
-func get_attack_frame_range() -> Array:
+func get_current_attack_frame_range() -> Array:
 	return []
 
 

@@ -56,5 +56,5 @@ func _on_attack_range_area_body_exited(body: Node2D) -> void:
 		if body is CharacterBody2D:
 			on_range = false
 
-func get_attack_frame_range() -> Array:
+func get_current_attack_frame_range() -> Array:
 	return attack_frames
