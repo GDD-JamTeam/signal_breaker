@@ -10,6 +10,6 @@ extends Node
 func get_sound(key: String) -> AudioStream:
 	if sound_library.has(key):
 		return sound_library[key]
-	
+
 	push_warning("SoundManager: La llave de audio '" + key + "' no existe en la librería.")
 	return null

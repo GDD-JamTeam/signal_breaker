@@ -124,22 +124,22 @@ func apply_damage(area: Area2D, damage: int) -> void:
 	if target.has_method("get_hurt"):
 		target.get_hurt(damage, global_position)
 		hit_targets.append(target)
-		
+
 #region Métodos de audio
 
 func play_sound_by_key(sound_key: String) -> void:
 	if sound_key.is_empty():
 		return
-	
+
 	var complete_sound_key: String = name_entity + "_" + sound_key
-	
+
 	# Le pedimos el archivo de audio al manager global
 	var stream = EntitiesSounds.get_sound(complete_sound_key)
-	
+
 	if stream and audio_player:
 		audio_player.stream = stream
 		audio_player.play()
-	
+
 func stop_sound() -> void:
 	if audio_player and audio_player.is_playing():
 		audio_player.stop()
