@@ -28,7 +28,6 @@ menu = NodePath("CanvasLayer/UI/Menu")
 victory_area = NodePath("VictoryArea")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=648589014]
-visible = false
 
 [node name="UI" type="Control" parent="CanvasLayer" unique_id=1016977528]
 layout_mode = 3
@@ -58,7 +57,6 @@ tile_set = ExtResource("11_q163x")
 shape = SubResource("WorldBoundaryShape2D_kuyq6")
 
 [node name="Signals" type="Node2D" parent="." unique_id=635063365]
-visible = false
 
 [node name="Signal" parent="Signals" unique_id=100524043 node_paths=PackedStringArray("parent_node") instance=ExtResource("6_0yxb7")]
 position = Vector2(218, 6)
@@ -90,7 +88,6 @@ update_rotation = false
 update_scale = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=235019019]
-visible = false
 position = Vector2(-448, 81)
 zoom = Vector2(2.26, 2.26)
 limit_left = -463
@@ -103,7 +100,6 @@ position_smoothing_speed = 3.0
 [node name="Enemies" type="Node2D" parent="." unique_id=2014819309]
 
 [node name="VictoryArea" type="Area2D" parent="." unique_id=1093245693]
-visible = false
 script = ExtResource("10_j18iy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryArea" unique_id=1150495840]
