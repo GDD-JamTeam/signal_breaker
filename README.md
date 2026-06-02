@@ -7,7 +7,7 @@ Este proyecto fue desarrollado para la Ludum Dare 59, una Game Jam de carácter 
 Signal Breaker es desarollado por un grupo de estudiantes dentro de GDD, el grupo estudiantil de desarrollo de videojuegos de la Universidad Nacional de Colombia.
 
 ## Controles
--	Flechas para moverse
--	Z: ataque débil
--	C: ataque fuerte
--	Esc: pausa
+- Flechas  ←↑↓→ o WASD:  Moverse
+- Tecla H o Z: Ataque ligero
+- Tecla J o X: Ataque pesado
+- ESC: Pausa
